@@ -60,8 +60,9 @@
     ["line", "Лінії"], ["accent", "Акцент"]
   ];
 
-  var root = null, slug = null, draft = null, theme = null;
+  var root = null, slug = null, draft = null, theme = null, siteCfg = null;
   var frame, frameReady = false, tab = "content", saveTimer = null;
+  var CONTACT_TYPES = ["telegram", "instagram", "email", "phone", "website", "facebook"];
 
   /* ---------------- tiny DOM ---------------- */
   function h(tag, props, kids) {
@@ -178,11 +179,7 @@
     slug = s;
     draft = JSON.parse(await readText(slug + "/content.json"));
     renderTab();
-    // Point the preview iframe at the event folder so relative image paths
-    // (assets/img/...) resolve to THIS event's photos, not the root.
-    var want = "/" + slug + "/";
-    var cur = ""; try { cur = new URL(frame.src).pathname; } catch (e) {}
-    if (cur !== want) { frameReady = false; frame.src = want; } else { renderPreview(); }
+    pointPreviewForTab();
   }
 
   /* ---------------- preview ---------------- */
@@ -195,6 +192,25 @@
   function scheduleSavePreview() {
     if (saveTimer) clearTimeout(saveTimer);
     saveTimer = setTimeout(renderPreview, 180);
+  }
+  function renderSitePreview() {
+    if (!frameReady || !siteCfg) return;
+    var w; try { w = frame.contentWindow; } catch (e) { return; }
+    if (!w || !w.WeddingLanding) return;
+    try { w.WeddingLanding.render(siteCfg, w.document.getElementById("app")); applyThemeToPreview(); } catch (e) { console.error(e); }
+  }
+  function scheduleSitePreview() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(renderSitePreview, 180);
+  }
+  // Point the preview at the right page for the active tab: the event folder
+  // (relative photo paths resolve) for content/photos, root "/" for the landing
+  // (which loads landing.js / WeddingLanding).
+  function pointPreviewForTab() {
+    var want = (tab === "site") ? "/" : (slug ? "/" + slug + "/" : "/");
+    var cur = ""; try { cur = new URL(frame.src, location.href).pathname; } catch (e) {}
+    if (cur !== want) { frameReady = false; frame.src = want; }
+    else if (tab === "site") renderSitePreview(); else renderPreview();
   }
 
   /* ---------------- content form ---------------- */
@@ -539,11 +555,59 @@
     btn.disabled = false; btn.textContent = "Зібрати publish";
   }
 
+  /* ---------------- main page (landing / site.json) ---------------- */
+  function siteField(key, label, opts) {
+    opts = opts || {};
+    var input = h(opts.textarea ? "textarea" : "input", { type: opts.textarea ? null : "text", oninput: function () { siteCfg[key] = this.value; scheduleSitePreview(); } });
+    input.value = siteCfg[key] != null ? siteCfg[key] : "";
+    return h("label", { class: "f" }, [label, input]);
+  }
+  function contactsEditor() {
+    var wrap = h("div");
+    function rowEl(item) {
+      var typeSel = h("select", { onchange: function () { item.type = this.value; scheduleSitePreview(); } },
+        CONTACT_TYPES.map(function (t) { return h("option", { value: t, text: t }); }));
+      typeSel.value = CONTACT_TYPES.indexOf(item.type) > -1 ? item.type : "website";
+      var labelIn = h("input", { type: "text", oninput: function () { item.label = this.value; scheduleSitePreview(); } }); labelIn.value = item.label || "";
+      var urlIn = h("input", { type: "text", oninput: function () { item.url = this.value; scheduleSitePreview(); } }); urlIn.value = item.url || "";
+      var rm = h("button", { class: "rm", type: "button", text: "×", onclick: function () { var i = siteCfg.contacts.indexOf(item); if (i > -1) siteCfg.contacts.splice(i, 1); row.remove(); scheduleSitePreview(); } });
+      var row = h("div", { class: "row" }, [rm,
+        h("label", { class: "f" }, ["Тип", typeSel]),
+        h("label", { class: "f" }, ["Підпис", labelIn]),
+        h("label", { class: "f" }, ["Посилання (https:// або mailto:)", urlIn])]);
+      return row;
+    }
+    (siteCfg.contacts || []).forEach(function (it) { wrap.appendChild(rowEl(it)); });
+    var add = h("button", { class: "add", type: "button", text: "+ Контакт", onclick: function () { var it = { type: "telegram", label: "", url: "" }; siteCfg.contacts.push(it); wrap.insertBefore(rowEl(it), add); scheduleSitePreview(); } });
+    wrap.appendChild(add);
+    return wrap;
+  }
+  async function buildSite(panel) {
+    if (!siteCfg) {
+      try { siteCfg = JSON.parse(await readText("site.json")); }
+      catch (e) { siteCfg = { brand: "Вісточка", eyebrow: "", tagline: "", contactsHeading: "", contacts: [], footer: "" }; }
+    }
+    if (!siteCfg.contacts) siteCfg.contacts = [];
+    panel.appendChild(h("p", { class: "hint", text: "Головна сторінка сайту (корінь /). «Зберегти головну» пише site.json." }));
+    panel.appendChild(fieldset("Бренд і тексти", null, [
+      siteField("brand", "Назва бренду"), siteField("eyebrow", "Напис зверху"),
+      siteField("tagline", "Підзаголовок", { textarea: true }), siteField("contactsHeading", "Заголовок контактів"),
+      siteField("footer", "Підвал")]));
+    panel.appendChild(fieldset("Контакти", null, [contactsEditor()]));
+    panel.appendChild(h("button", { class: "add", type: "button", text: "Зберегти головну", onclick: saveSite }));
+    renderSitePreview();
+  }
+  async function saveSite() {
+    try { await writeText("site.json", JSON.stringify(siteCfg, null, 2) + "\n"); toast("Головну збережено"); }
+    catch (e) { console.error(e); toast("Помилка збереження головної"); }
+  }
+
   /* ---------------- tabs ---------------- */
   function renderTab() {
     var panel = document.getElementById("panel"); panel.innerHTML = "";
     if (!root) { panel.innerHTML = '<div class="empty"><p>Відкрийте проєкт.</p></div>'; return; }
     if (tab === "design") { if (theme) buildDesign(panel); return; }
+    if (tab === "site") { buildSite(panel); return; }
     if (tab === "publish") { buildPublishPanel(panel); return; }
     if (!draft) { panel.innerHTML = '<div class="empty"><p>Немає події. Створіть нову кнопкою «+ Подія».</p></div>'; return; }
     if (tab === "content") buildContentForm(panel);
@@ -559,7 +623,7 @@
   /* ---------------- wire up ---------------- */
   function init() {
     frame = document.getElementById("pv");
-    frame.addEventListener("load", function () { frameReady = true; renderPreview(); });
+    frame.addEventListener("load", function () { frameReady = true; if (tab === "site") renderSitePreview(); else renderPreview(); });
     document.getElementById("open").addEventListener("click", openProject);
     document.getElementById("save").addEventListener("click", function () { saveEvent(false); });
     document.getElementById("build").addEventListener("click", buildPublish);
@@ -571,6 +635,7 @@
       tab = b.getAttribute("data-tab");
       this.querySelectorAll("[data-tab]").forEach(function (x) { x.classList.toggle("on", x === b); });
       renderTab();
+      pointPreviewForTab();
     });
     document.querySelector(".ptools").addEventListener("click", function (e) {
       var b = e.target.closest("[data-view]"); if (!b) return;
