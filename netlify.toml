@@ -1,0 +1,9 @@
+# Netlify build config for continuous deployment from the GitHub repo.
+# Netlify runs `node build.mjs` to assemble publish/ (shared app + all
+# event folders + per-event OG), then serves the publish/ directory.
+[build]
+  command = "node build.mjs"
+  publish = "publish"
+
+[build.environment]
+  SITE_URL = "https://vistochka.pp.ua"
