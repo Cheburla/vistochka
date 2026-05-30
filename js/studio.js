@@ -298,10 +298,43 @@
       textField(d.telegram, "heading", "Заголовок"), textField(d.telegram, "text", "Текст", { textarea: true }),
       textField(d.telegram, "url", "Посилання"), textField(d.telegram, "buttonLabel", "Кнопка")
     ]));
+    if (!d.music) d.music = { enabled: false, src: "", label: "Увімкнути музику" };
     panel.appendChild(fieldset("Музика / Підвал", d.music, [
       textField(d.music, "label", "Підпис кнопки музики"),
+      musicUploader(d),
       textField(d.footer, "text", "Підвал: текст"), textField(d.footer, "signature", "Підвал: підпис")
     ]));
+  }
+
+  function musicUploader(d) {
+    var wrap = h("div");
+    var status = h("p", { class: "hint" });
+    function refresh() { status.textContent = (d.music && d.music.src) ? ("Трек: " + d.music.src) : "Трек ще не завантажено."; }
+    refresh();
+    var input = h("input", { type: "file", accept: "audio/*", style: "display:none", onchange: function () {
+      if (this.files && this.files[0]) uploadAudio(this.files[0]);
+    } });
+    var up = h("button", { class: "add", type: "button", text: "Завантажити пісню", onclick: function () { input.click(); } });
+    var rm = h("button", { class: "add", type: "button", text: "Прибрати", onclick: async function () {
+      d.music.src = ""; d.music.enabled = false; await saveEvent(true); if (tab === "content") renderTab(); renderPreview();
+    } });
+    wrap.appendChild(status);
+    wrap.appendChild(h("div", { class: "swrow" }, [up, rm, input]));
+    wrap.appendChild(h("p", { class: "hint", text: "MP3 до ~8 МБ. На сайті зʼявиться кругла кнопка: гість вмикає і вимикає музику одним кліком." }));
+    return wrap;
+  }
+  async function uploadAudio(file) {
+    try {
+      var ext = ((/\.([a-z0-9]+)$/i.exec(file.name) || [])[1] || (file.type.split("/")[1] || "mp3")).toLowerCase().replace(/[^a-z0-9]/g, "") || "mp3";
+      var name = "background." + ext;
+      await writeBlob(slug + "/assets/audio/" + name, file);
+      draft.music.src = "assets/audio/" + name;
+      draft.music.enabled = true;
+      await saveEvent(true);
+      if (tab === "content") renderTab();
+      renderPreview();
+      toast("Пісню завантажено");
+    } catch (e) { console.error(e); toast("Не вдалося завантажити пісню"); }
   }
 
   /* ---------------- photos ---------------- */
@@ -434,7 +467,9 @@
       await getDir(root, [s, "assets", "img"], true);
       await getDir(root, [s, "assets", "audio"], true);
       await writeText(s + "/index.html", await readText("index.html"));
-      await writeText(s + "/content.json", await readText("content.sample.json"));
+      var tmpl;
+      try { tmpl = await readText("content.template.json"); } catch (e) { tmpl = await readText("content.sample.json"); }
+      await writeText(s + "/content.json", tmpl);
       // copy placeholder svgs
       var srcImg = await getDir(root, ["assets", "img"], false);
       for await (var e of srcImg.values()) {
