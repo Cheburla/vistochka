@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="uk"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Михайло &amp; Олена | Ми одружуємось</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#fcdfab",
+                    "on-secondary-fixed-variant": "#464747",
+                    "surface-container-high": "#eae8e4",
+                    "surface-container": "#efeeea",
+                    "background": "#fbf9f5",
+                    "surface-container-highest": "#e4e2de",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "surface-variant": "#e4e2de",
+                    "on-secondary-container": "#626262",
+                    "primary-container": "#1c1b1b",
+                    "outline-variant": "#c4c7c7",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#5f5e5e",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1b1c1a",
+                    "on-primary-fixed-variant": "#474746",
+                    "on-primary-fixed": "#1c1b1b",
+                    "tertiary-fixed-dim": "#dfc391",
+                    "on-error-container": "#93000a",
+                    "surface": "#fbf9f5",
+                    "outline": "#747878",
+                    "inverse-primary": "#c8c6c5",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#57441d",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "primary": "#000000",
+                    "surface-dim": "#dbdad6",
+                    "on-background": "#1b1c1a",
+                    "surface-container-low": "#f5f3ef",
+                    "on-tertiary-container": "#988154",
+                    "on-primary-container": "#858383",
+                    "primary-fixed": "#e5e2e1",
+                    "secondary-fixed": "#e4e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "on-error": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary-container": "#e1dfdf",
+                    "inverse-on-surface": "#f2f0ed",
+                    "surface-bright": "#fbf9f5",
+                    "secondary": "#5e5e5e",
+                    "tertiary-container": "#261900",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#261900",
+                    "accent-gold": "#C2A878"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap-mobile": "80px",
+                    "gutter": "24px",
+                    "hairline": "1px",
+                    "gallery-max": "1200px",
+                    "section-gap-desktop": "120px",
+                    "container-max": "780px"
+            },
+            "fontFamily": {
+                    "headline-md": ["EB Garamond"],
+                    "headline-sm": ["EB Garamond"],
+                    "accent-serif": ["EB Garamond"],
+                    "display-lg-mobile": ["EB Garamond"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "display-lg": ["EB Garamond"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "accent-serif": ["24px", {"lineHeight": "1", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.5", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-indicator::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background-color: #1b1c1a;
+            display: block;
+            margin: 10px auto;
+            animation: scrolldown 2s infinite ease-in-out;
+        }
+        @keyframes scrolldown {
+            0% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+            51% { transform: scaleY(1); transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.95; transform: scale(1.01); }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 3s infinite ease-in-out;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(251, 249, 245, 0.4), rgba(251, 249, 245, 0.8));
+        }
+        .gallery-zoom {
+            overflow: hidden;
+        }
+        .gallery-zoom img {
+            transition: transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .gallery-zoom:hover img {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center px-gutter py-4 max-w-gallery-max mx-auto">
+<span class="font-headline-sm text-headline-sm text-primary">Ми одружуємось</span>
+<div class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-on-secondary-container/70 font-medium hover:text-primary transition-colors duration-300" href="#program">Програма</a>
+<a class="font-label-caps text-label-caps text-on-secondary-container/70 font-medium hover:text-primary transition-colors duration-300" href="#locations">Локації</a>
+<a class="font-label-caps text-label-caps text-primary font-semibold border-b border-primary pb-1" href="#rsvp">RSVP</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="favorite">favorite</span>
+</div>
+</div>
+</nav>
+<!-- 1. Hero Section -->
+<header class="relative min-h-screen flex flex-col items-center justify-center text-center px-gutter">
+<div class="absolute inset-0 z-0">
+<img alt="Mikhail and Olena pre-wedding" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD1pWwEyH44l30POxekYFOKw9tHRjSQ-6Gp9z7jX_WUZwCnA3BJkYlSY2z4ec4FT8MtGPhu8u18RZJPo2MBnz2BtfWFU1QuJMFd0DFYah_eIyhnPpFbDKNrT9tz5XGQkBV7YRHOZtf2YTEyurb3zQSy4N9sOtvEvnSPto_uXFF6clYmJzoXGUJIwqTduZn32JCzkhzOZX4wqRRFpsMwt83OSKFxH0Zm07PDRINSjfNLS_ZI0QPU7fj1P6bPE3UoBFA9CzuKyavmg"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 space-y-6 reveal">
+<p class="font-label-caps text-label-caps tracking-[0.3em] text-on-surface-variant">МИ ОДРУЖУЄМОСЬ</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">
+            Михайло <span class="text-accent-gold">&amp;</span> Олена
+        </h1>
+<div class="w-12 h-px bg-outline-variant mx-auto"></div>
+<p class="font-headline-sm text-headline-sm">Неділя, 20 вересня 2026</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto italic">Раді запросити вас розділити цей особливий день разом з нами</p>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-indicator"></div>
+</header>
+<!-- 2. Countdown Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low text-center reveal">
+<div class="max-w-container-max mx-auto px-gutter">
+<h2 class="font-label-caps text-label-caps mb-12 tracking-widest text-secondary">ДО ВЕСІЛЛЯ ЛИШИЛОСЬ</h2>
+<div class="flex justify-center gap-4 md:gap-12" id="countdown">
+<div class="flex flex-col">
+<span class="text-4xl md:text-6xl font-headline-md text-primary" id="days">00</span>
+<span class="font-label-caps text-[10px] mt-2 opacity-60">ДНІВ</span>
+</div>
+<span class="text-4xl md:text-6xl font-headline-md text-accent-gold">:</span>
+<div class="flex flex-col">
+<span class="text-4xl md:text-6xl font-headline-md text-primary" id="hours">00</span>
+<span class="font-label-caps text-[10px] mt-2 opacity-60">ГОДИН</span>
+</div>
+<span class="text-4xl md:text-6xl font-headline-md text-accent-gold">:</span>
+<div class="flex flex-col">
+<span class="text-4xl md:text-6xl font-headline-md text-primary" id="minutes">00</span>
+<span class="font-label-caps text-[10px] mt-2 opacity-60">ХВИЛИН</span>
+</div>
+<span class="text-4xl md:text-6xl font-headline-md text-accent-gold">:</span>
+<div class="flex flex-col">
+<span class="text-4xl md:text-6xl font-headline-md text-primary" id="seconds">00</span>
+<span class="font-label-caps text-[10px] mt-2 opacity-60">СЕКУНД</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Story Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop px-gutter overflow-hidden">
+<div class="max-w-container-max mx-auto text-center reveal">
+<h2 class="font-headline-md text-headline-md mb-8">Як ми зустрілись</h2>
+<div class="space-y-6 text-on-surface-variant font-body-md max-w-[600px] mx-auto leading-relaxed">
+<p>Наша історія розпочалася одного теплого весняного вечора у невеликій кав'ярні в центрі Києва. Те, що планувалося як коротка зустріч за горнятком лате, перетворилося на багатогодинну прогулянку містом під зоряним небом.</p>
+<p>З того моменту ми зрозуміли, що знайшли те саме рідкісне відчуття спорідненості душ. Ми пройшли через безліч подорожей, тихих вечорів та спільних мрій, і тепер ми готові розпочати новий розділ нашого життя разом.</p>
+</div>
+<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="aspect-[4/5] overflow-hidden reveal">
+<img alt="Couple in nature" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuCBz-U6KHi0ncrmAWEt4kt63cJRwDylnWGl5m2q-ZfgNpYVOsMyptPk_z8MJBfk5o9uc2ALdIgh0lneyiQP5k5C0vWeyn0Q8mubYznm8mLPmv5RWtXMLDHuGSSrRPQuEJrGdcyCYYINgkGTij3hu1L8EEhlb6bfyZ43mdQjRLGPPYbpbQkX2Cu3fE6EPAAfuVLx8ek54-1SWNJimPubnAeuvjk28BOWFUKd7KtsmgAKoB-GOx1u6HTLz51M9gYhBj-ViHVUT_sA"/>
+</div>
+<div class="aspect-[4/5] overflow-hidden md:mt-12 reveal">
+<img alt="Candid moment" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWPHTx1ilXLJ2gnc6IR9n4HIXy6uVvzZKUb_wdMagiGTff6dAAIe9BgUOc3wxyLf22dSvPUO2LTI1uJjS_ke2CSecf9H6gbk79BqfaRwB4Fv4RWNR_61TYoI9rZoptMBzYjy9S9olMZK6TLySrjS7Yln8nRUvBLvm6lkFJBbw7MXYYL_pXJWvw_MMGojNFv8M1Ru0vvPa4KRG60QhVcmWWYwz5CFD_iMY1RklcwKAXbHYUkIghdMK6ruQR-jJCkvfqoViDy-h1YA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Gallery Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low">
+<div class="max-w-gallery-max mx-auto px-gutter reveal">
+<h2 class="font-headline-md text-headline-md text-center mb-16">Наші моменти</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+<div class="aspect-square gallery-zoom reveal">
+<img alt="Bouquet" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWbpvm-GjEL6Uul7Mk_bzPQELyHS4t-WPfQghP0URfcqpy7ySnG_-5a6IZ-BDbhVL8ZfxMdyFcbL6YzHWk1Xa14Oea5473i_T0rOPx5SoqcBMRiODMPnskQOLlG0VMN3B9tkPEGPjhk_osuLXgT_CgHeHPOcKHUfndbZjI4kesqWHTP4Bp8FK4v30uoKTmAHejIsniXT3n14qeaBEhv9plJBnCmVAHVW7CnUjFmPVLLCxZ6Etahyd3CDCVfynHXV2Krm9kxi0sLQ"/>
+</div>
+<div class="aspect-[3/4] gallery-zoom md:col-start-2 md:row-span-2 reveal">
+<img alt="Wedding venue" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3HSfr2N1nWT3rYsBwGXo5nX3K8T_BrWj7i6Mol00QLG9vZ9Hu4exe7YRfioGFsTTQBB52w6YFAcTHbIfMzZxethLWcCgmvR0a53O_qKyJXoqDONCy3EM55t5GoHCEiMLwIVhfXGhIwXICrA4uLYB0KE8lGTCDBNExHRm6iMsLOB6K8CSbrlR3CmDLoobz-owlaeJnNgN8iXhWdwp2mgzUMKKtc3ubUTkVEzP9iIX9Z5ctnG7I88qNCYNL9r8c2I-zVGkB90KPJA"/>
+</div>
+<div class="aspect-square gallery-zoom reveal">
+<img alt="Champagne" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfK7uCBJcFEVCmeIpvuJKNks9l-CPuzb_8Ucrak_g9QEnq7UR25SUMWBGm4JWSUbxQlTynX6Sa1Eh4TzzJFkY6mLaoHdvn0SYSs-wg9j3kLKE2xuMsfPF9k4HJkrHkGfmMfBWn2WXtUsMk5Nhxz4Co7z34sdux_jbhDnsTn4Pf9BPwQXD5kKzzDFq-X8KzkWpHzyh0YLuj5QXiDvdCNn-1UGOvrRa2is0zIwCNz5ZS07ARYAwq6cDXSRNSmWk00jgEAyzUtALzgA"/>
+</div>
+<div class="aspect-square gallery-zoom md:col-start-1 md:row-start-2 reveal">
+<img alt="Bridal shoes" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpf_f6CD_hvTp3cHDdN4II6anFWHgRSzBtoOlUIm8qo0KgHTBUXoXYBuVw8ovTLqYv3t_LGiTF0Xy7owV9iMPZvFXE2bxEEDcfcXUdDe_IBy_4_CEywkTLNfMcaVJrCGajIOCJrLr5-MEUs6Qsymu8_zKsDn6wxNEnT7aTjPcfNiCUEPdd0MfM3d2ft5m2iVxQIgLj6H-vUsGjUlqGwba2aUTLyL8IS9qdxb1W80Gt-oWmMGan3JHk4tVgWizn2bi6GRlY-eW3dw"/>
+</div>
+<div class="aspect-square gallery-zoom md:col-start-3 md:row-start-2 reveal">
+<img alt="Invitation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFcZxW3gbU7mcPtSBIgHzmXcftlo0arGc8Y52zZ9aJwC2OGWBPapTRRzhm0hcOa1G1HfEQSYkZIALZCyTlIaFa_hI2C7vWLCGgWjhYpnk3RJ_mdw6XvhxZK1_ad0yW81lDhsbBCtM2YCXYqhUVa3tvAaaVbQQ9hY_GZbmHf9Mlwk3P_oN0x2fOXXqxxtppisCPvUnBkPtk2bDIysLU7Oe15Acyu7LZ0P9KceJMugbcw2bOWRptXQvleqpzj3C50sIPdZLUbkyccA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Timing Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop px-gutter" id="program">
+<div class="max-w-container-max mx-auto reveal">
+<h2 class="font-headline-md text-headline-md text-center mb-16">Таймінг нашого свята</h2>
+<div class="space-y-0">
+<div class="py-10 border-b border-outline-variant/30 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 reveal">
+<span class="font-headline-sm text-headline-sm text-accent-gold">15:00</span>
+<span class="font-body-lg text-body-lg uppercase tracking-widest">Вітальний фуршет</span>
+<span class="font-label-caps text-label-caps opacity-50">WELCOME DRINK</span>
+</div>
+<div class="py-10 border-b border-outline-variant/30 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 reveal">
+<span class="font-headline-sm text-headline-sm text-accent-gold">16:00</span>
+<span class="font-body-lg text-body-lg uppercase tracking-widest">Виїзна церемонія</span>
+<span class="font-label-caps text-label-caps opacity-50">CEREMONY</span>
+</div>
+<div class="py-10 border-b border-outline-variant/30 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 reveal">
+<span class="font-headline-sm text-headline-sm text-accent-gold">17:30</span>
+<span class="font-body-lg text-body-lg uppercase tracking-widest">Святкова вечеря</span>
+<span class="font-label-caps text-label-caps opacity-50">WEDDING DINNER</span>
+</div>
+<div class="py-10 border-b border-outline-variant/30 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 reveal">
+<span class="font-headline-sm text-headline-sm text-accent-gold">21:00</span>
+<span class="font-body-lg text-body-lg uppercase tracking-widest">Танцювальна програма</span>
+<span class="font-label-caps text-label-caps opacity-50">PARTY TIME</span>
+</div>
+<div class="py-10 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 reveal">
+<span class="font-headline-sm text-headline-sm text-accent-gold">23:00</span>
+<span class="font-body-lg text-body-lg uppercase tracking-widest">Завершення свята</span>
+<span class="font-label-caps text-label-caps opacity-50">GRAND FINALE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Dress Code Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container text-center reveal">
+<div class="max-w-container-max mx-auto px-gutter">
+<h2 class="font-headline-md text-headline-md mb-6">Дрес-код</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12 max-w-md mx-auto">Будемо вдячні, якщо ви підтримаєте колірну гаму нашого весілля при виборі вашого вбрання</p>
+<div class="flex flex-wrap justify-center gap-6 md:gap-10">
+<div class="flex flex-col items-center reveal">
+<div class="w-16 h-16 rounded-full bg-[#EAE3D9] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] mt-3">CREAM</span>
+</div>
+<div class="flex flex-col items-center reveal">
+<div class="w-16 h-16 rounded-full bg-[#D4C3B1] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] mt-3">SAND</span>
+</div>
+<div class="flex flex-col items-center reveal">
+<div class="w-16 h-16 rounded-full bg-[#B29474] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] mt-3">MOCHA</span>
+</div>
+<div class="flex flex-col items-center reveal">
+<div class="w-16 h-16 rounded-full bg-[#8E8D8A] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] mt-3">STONE</span>
+</div>
+<div class="flex flex-col items-center reveal">
+<div class="w-16 h-16 rounded-full bg-[#2E2E2E] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] mt-3">BLACK</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Locations Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop px-gutter" id="locations">
+<div class="max-w-gallery-max mx-auto reveal">
+<h2 class="font-headline-md text-headline-md text-center mb-16">Адреси святкування</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Ceremony Card -->
+<div class="flex flex-col reveal">
+<div class="aspect-video bg-surface-container-high mb-8 overflow-hidden">
+<img alt="Ceremony location" class="w-full h-full object-cover grayscale opacity-80 hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABs1U341oyp7nXjiofduXKr0wYyInfMrMcwzUM7y13Y7Z8Wg7d5lQxiVlnj-hVJJDM7BEgRoplWAvlMZQmCcZoqAJ5JS7qZP0bYyM6adH9N5Ae7Qn28z6b97PHJZuvLtwApYvCqdUOsevbjChUe9FbJ6gIJHW1OwiAjBUNXwxSZHUqSv25bXcaBldBGPvFZzwTcuXTli8pX3IjhW3WBMsPa2bJOtyBt16Al9N3vGeYeR5hzinOAyKyt3DSzIk31_uHFlNGL-4UmQ"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Церемонія</h3>
+<p class="font-body-md text-on-surface-variant mb-4">Вул. Паркова, 5, Парк "Перемога", м. Київ</p>
+<p class="font-label-caps text-label-caps text-accent-gold mb-6">ПОЧАТОК О 16:00</p>
+<a class="inline-block border border-primary px-8 py-4 font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 w-fit" href="#">Побудувати маршрут</a>
+</div>
+<!-- Banquet Card -->
+<div class="flex flex-col reveal">
+<div class="aspect-video bg-surface-container-high mb-8 overflow-hidden">
+<img alt="Banquet hall" class="w-full h-full object-cover grayscale opacity-80 hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXyJUdUZHEz9KWD_d978IF0zEe9BlEp7v9y3d3nMmsfDmCpvw290nKXKs-0uZEPS2TcwZqLt5MkjeXtbw_7AN56qdFayqlnruUStBhTzbbULMjr3HMMN8OzqX_5nbsKlOQm12sh69RysHssbSPjv1pjN8jjH9SUn0B3MJJ2MRepCznacJhp5lFtf0phmQaTTGcPT6Dy-DS1tQk2HgS5YhjY4jVtS5zgRFS28S5C54kwEX9-mhq11IaFV0Ij8r_DnfBlzWQBhYnlg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Банкет</h3>
+<p class="font-body-md text-on-surface-variant mb-4">Ресторан "Grand Hall", бул. Лесі Українки, 24, м. Київ</p>
+<p class="font-label-caps text-label-caps text-accent-gold mb-6">ПОЧАТОК О 17:30</p>
+<a class="inline-block border border-primary px-8 py-4 font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 w-fit" href="#">Побудувати маршрут</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. RSVP Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop px-gutter" id="rsvp">
+<div class="max-w-[700px] mx-auto bg-[#F5F0E6] p-12 md:p-20 reveal">
+<h2 class="font-headline-md text-headline-md text-center mb-4 tracking-widest">RSVP</h2>
+<p class="font-body-md text-center text-on-surface-variant mb-12">Будь ласка, підтвердіть вашу присутність до 1 вересня 2026 року</p>
+<form class="space-y-10" onsubmit="event.preventDefault(); alert('Дякуємо! Ваша відповідь прийнята.');">
+<div class="relative reveal">
+<input class="w-full bg-transparent border-0 border-b border-outline py-3 px-0 focus:ring-0 focus:border-accent-gold transition-colors peer placeholder-transparent" id="name" name="name" placeholder="Ім'я та Прізвище" required="" type="text"/>
+<label class="absolute left-0 -top-4 font-label-caps text-[10px] text-on-surface-variant transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px]" for="name">ІМ'Я ТА ПРІЗВИЩЕ</label>
+</div>
+<div class="space-y-4 reveal">
+<p class="font-label-caps text-[10px] text-on-surface-variant">ЧИ ЗМОЖЕТЕ ВИ ПРИЙТИ?</p>
+<div class="flex gap-12">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-accent-gold border-outline-variant focus:ring-accent-gold" name="attendance" type="radio" value="yes"/>
+<span class="font-body-md">Так, з радістю</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-accent-gold border-outline-variant focus:ring-accent-gold" name="attendance" type="radio" value="no"/>
+<span class="font-body-md">На жаль, ні</span>
+</label>
+</div>
+</div>
+<div class="relative reveal">
+<input class="w-full bg-transparent border-0 border-b border-outline py-3 px-0 focus:ring-0 focus:border-accent-gold transition-colors peer placeholder-transparent" id="guests" name="guests" placeholder="Кількість гостей" type="number"/>
+<label class="absolute left-0 -top-4 font-label-caps text-[10px] text-on-surface-variant transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px]" for="guests">КІЛЬКІСТЬ ГОСТЕЙ</label>
+</div>
+<div class="relative reveal">
+<textarea class="w-full bg-transparent border-0 border-b border-outline py-3 px-0 focus:ring-0 focus:border-accent-gold transition-colors peer placeholder-transparent resize-none" id="wishes" name="wishes" placeholder="Побажання" rows="1"></textarea>
+<label class="absolute left-0 -top-4 font-label-caps text-[10px] text-on-surface-variant transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px]" for="wishes">ВАШІ ПОБАЖАННЯ ТА ПЕРЕВАГИ В ЇЖІ</label>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 font-label-caps text-label-caps tracking-widest hover:bg-on-secondary-fixed transition-colors duration-300 animate-pulse-soft reveal" type="submit">ВІДПРАВИТИ</button>
+</form>
+</div>
+</section>
+<!-- 9. Telegram Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop text-center">
+<div class="max-w-container-max mx-auto px-gutter reveal">
+<div class="bg-surface-container-low p-12 border border-outline-variant/20">
+<span class="material-symbols-outlined text-4xl text-accent-gold mb-6" data-icon="send">send</span>
+<h2 class="font-headline-sm text-headline-sm mb-4">Наш Telegram чат</h2>
+<p class="font-body-md text-on-surface-variant mb-8 max-w-sm mx-auto">Приєднуйтесь до нашої спільноти, щоб ділитися фотографіями та отримувати новини про свято</p>
+<a class="inline-flex items-center gap-3 border border-primary px-10 py-5 font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">ПРИЄДНАТИСЯ</a>
+</div>
+</div>
+</section>
+<!-- 10. Footer -->
+<footer class="bg-background border-t border-outline-variant/20 w-full py-section-gap-mobile md:py-section-gap-desktop">
+<div class="flex flex-col items-center gap-6 w-full max-w-container-max mx-auto px-gutter text-center reveal">
+<h2 class="font-headline-md text-headline-md text-primary">Святкуйте з нами!</h2>
+<div class="w-20 h-px bg-accent-gold"></div>
+<div class="flex gap-8 font-body-md text-body-md text-on-secondary-variant">
+<a class="hover:opacity-60 transition-opacity" href="#locations">Контакти</a>
+<a class="hover:opacity-60 transition-opacity" href="#program">Таймінг</a>
+</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-8 uppercase tracking-[0.2em]">© 2026 Михайло та Олена. Всі права захищені.</p>
+</div>
+</footer>
+<!-- 11. Floating Music Toggle -->
+<button class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-background border border-outline-variant rounded-full flex items-center justify-center shadow-lg hover:bg-surface-container transition-all duration-300 group" id="musicToggle">
+<span class="material-symbols-outlined text-on-surface group-hover:scale-110 transition-transform" data-icon="volume_up">volume_up</span>
+</button>
+<script>
+    // Countdown Timer Logic
+    const targetDate = new Date('September 20, 2026 16:00:00').getTime();
+
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const dEl = document.getElementById('days');
+        const hEl = document.getElementById('hours');
+        const mEl = document.getElementById('minutes');
+        const sEl = document.getElementById('seconds');
+
+        if(dEl) dEl.innerText = days < 10 ? '0' + days : days;
+        if(hEl) hEl.innerText = hours < 10 ? '0' + hours : hours;
+        if(mEl) mEl.innerText = minutes < 10 ? '0' + minutes : minutes;
+        if(sEl) sEl.innerText = seconds < 10 ? '0' + seconds : seconds;
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // IntersectionObserver for Reveal Animations
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // Music Toggle Logic
+    const musicToggle = document.getElementById('musicToggle');
+    let isPlaying = false;
+    musicToggle.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const icon = musicToggle.querySelector('span');
+        icon.innerText = isPlaying ? 'volume_off' : 'volume_up';
+        musicToggle.classList.toggle('bg-accent-gold', isPlaying);
+        musicToggle.classList.toggle('text-on-primary', isPlaying);
+    });
+
+    // Form Textarea Auto-expand
+    document.querySelectorAll('textarea').forEach(el => {
+        el.addEventListener('input', () => {
+            el.style.height = 'auto';
+            el.style.height = el.scrollHeight + 'px';
+        });
+    });
+</script>
+</body></html>

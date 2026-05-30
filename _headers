@@ -1,0 +1,12 @@
+# Security headers for all pages (defense-in-depth).
+# Permissions-Policy disables only features the site never uses
+# (geolocation/camera/microphone/payment/usb).
+# Audio playback and the "build route" link are NOT affected:
+# the route opens Google Maps in a new tab, and music is playback,
+# neither needs a browser permission here. autoplay is intentionally
+# left unrestricted so the background music keeps working.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=()
