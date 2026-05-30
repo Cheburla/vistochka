@@ -12,7 +12,7 @@ const SITE = (process.env.SITE_URL || "https://vistochka.pp.ua").replace(/\/$/, 
 
 const EXCLUDE_TOP = new Set([
   "publish", "design", "apps-script", ".git", ".github", ".claude", "node_modules",
-  "editor.html", "studio.html", "content.sample.json",
+  "editor.html", "studio.html", "content.sample.json", "content.template.json",
   "build-publish.ps1", "new-event.ps1", "build.mjs", "netlify.toml",
   "README.md", "ROADMAP.md", ".gitignore"
 ]);
