@@ -1,6 +1,9 @@
-/* music.js — floating background-music toggle.
-   Browsers block autoplay, so playback starts on first user gesture.
-   Remembers state in localStorage. WeddingMusic.init(). */
+/* music.js — floating background-music toggle with auto-start.
+   Browsers block autoplay-with-sound, so we try to start on load and, if that
+   is blocked, start on the visitor's very first interaction (click/scroll/tap/
+   key). Volume comes from data-volume (0..1, default 0.35). The on/off choice
+   is remembered in localStorage, so a guest who muted it stays muted.
+   WeddingMusic.init(). */
 (function () {
   "use strict";
   var KEY = "wedding:music";
@@ -15,7 +18,9 @@
     if (audio) { try { audio.pause(); } catch (e) {} }
     audio = new Audio(src);
     audio.loop = true;
-    audio.preload = "none";
+    audio.preload = "auto";
+    var vol = parseFloat(btn.getAttribute("data-volume"));
+    audio.volume = isNaN(vol) ? 0.35 : Math.max(0, Math.min(1, vol));
 
     function setPlaying(on) {
       btn.classList.toggle("is-playing", on);
@@ -35,18 +40,20 @@
       }
     });
 
-    // If the guest previously enabled music, resume on their first interaction.
-    var wanted = false;
-    try { wanted = localStorage.getItem(KEY) === "on"; } catch (e) {}
-    if (wanted) {
-      var resume = function () {
+    // Auto-start unless the visitor explicitly muted it on a previous visit.
+    var pref = null;
+    try { pref = localStorage.getItem(KEY); } catch (e) {}
+    if (pref === "off") return;
+
+    audio.play().then(function () { setPlaying(true); }).catch(function () {
+      // Autoplay-with-sound was blocked: begin at the first user interaction.
+      var evts = ["pointerdown", "click", "keydown", "touchstart", "scroll"];
+      function go() {
+        evts.forEach(function (e) { document.removeEventListener(e, go); });
         audio.play().then(function () { setPlaying(true); }).catch(function () {});
-        document.removeEventListener("click", resume);
-        document.removeEventListener("touchstart", resume);
-      };
-      document.addEventListener("click", resume, { once: true });
-      document.addEventListener("touchstart", resume, { once: true });
-    }
+      }
+      evts.forEach(function (e) { document.addEventListener(e, go, { passive: true }); });
+    });
   }
 
   window.WeddingMusic = { init: init };

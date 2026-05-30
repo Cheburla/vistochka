@@ -19,7 +19,8 @@
   "music": {
     "enabled": true,
     "src": "assets/audio/background.mp3",
-    "label": "Увімкнути музику"
+    "label": "Увімкнути музику",
+    "volume": 0.35
   },
   "hero": {
     "enabled": true,

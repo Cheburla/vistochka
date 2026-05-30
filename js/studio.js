@@ -334,9 +334,14 @@
     var rm = h("button", { class: "add", type: "button", text: "Прибрати", onclick: async function () {
       d.music.src = ""; d.music.enabled = false; await saveEvent(true); if (tab === "content") renderTab(); renderPreview();
     } });
+    if (d.music.volume == null) d.music.volume = 0.35;
+    var volOut = h("span", { class: "hint", text: Math.round(d.music.volume * 100) + "%" });
+    var volRange = h("input", { type: "range", min: "0", max: "100", step: "5", oninput: function () { d.music.volume = parseInt(this.value, 10) / 100; volOut.textContent = this.value + "%"; scheduleSavePreview(); } });
+    volRange.value = String(Math.round(d.music.volume * 100));
     wrap.appendChild(status);
     wrap.appendChild(h("div", { class: "swrow" }, [up, rm, input]));
-    wrap.appendChild(h("p", { class: "hint", text: "MP3 до ~8 МБ. На сайті зʼявиться кругла кнопка: гість вмикає і вимикає музику одним кліком." }));
+    wrap.appendChild(h("label", { class: "f" }, ["Гучність музики", h("span", { class: "swrow" }, [volRange, volOut])]));
+    wrap.appendChild(h("p", { class: "hint", text: "MP3 до ~8 МБ. Музика спробує ввімкнутись одразу; якщо браузер заблокує, стартує при першому кліку/скролі гостя. Кругла кнопка вмикає і вимикає її." }));
     return wrap;
   }
   async function uploadAudio(file) {
@@ -506,7 +511,7 @@
   function excludeFromPublish(rel, kind) {
     var top = rel.split("/")[0];
     if (["publish", "design", "apps-script", ".git", ".claude", "node_modules"].indexOf(top) > -1) return true;
-    if (["studio.html", "editor.html", "content.sample.json", "build-publish.ps1", "new-event.ps1", "README.md", "ROADMAP.md"].indexOf(rel) > -1) return true;
+    if (["studio.html", "editor.html", "content.sample.json", "content.template.json", "build-publish.ps1", "new-event.ps1", "README.md", "ROADMAP.md", "MIGRATION-TODO.md"].indexOf(rel) > -1) return true;
     if (rel === "js/editor.js" || rel === "js/studio.js") return true;
     return false;
   }

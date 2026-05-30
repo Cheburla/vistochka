@@ -14,7 +14,7 @@ const EXCLUDE_TOP = new Set([
   "publish", "design", "apps-script", ".git", ".github", ".claude", "node_modules",
   "editor.html", "studio.html", "content.sample.json", "content.template.json",
   "build-publish.ps1", "new-event.ps1", "build.mjs", "netlify.toml",
-  "README.md", "ROADMAP.md", ".gitignore"
+  "README.md", "ROADMAP.md", "MIGRATION-TODO.md", ".gitignore", ".node-version"
 ]);
 const EXCLUDE_FILE = new Set(["js/editor.js", "js/studio.js"]);
 

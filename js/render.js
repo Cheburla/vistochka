@@ -297,7 +297,7 @@
   /* ---------- music ---------- */
   function musicToggle(c) {
     return (
-      '<button class="music-toggle" type="button" aria-label="' + attr(c.music.label || "Музика") + '" data-src="' + attr(c.music.src || "") + '">' +
+      '<button class="music-toggle" type="button" aria-label="' + attr(c.music.label || "Музика") + '" data-src="' + attr(c.music.src || "") + '" data-volume="' + attr(c.music.volume != null ? c.music.volume : "") + '">' +
         '<svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>' +
         '<svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>' +
       "</button>"

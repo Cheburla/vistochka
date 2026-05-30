@@ -19,7 +19,8 @@
   "music": {
     "enabled": false,
     "src": "",
-    "label": "Увімкнути музику"
+    "label": "Увімкнути музику",
+    "volume": 0.35
   },
   "hero": {
     "enabled": true,
