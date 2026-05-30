@@ -19,7 +19,7 @@
   "music": {
     "enabled": true,
     "src": "assets/audio/background.mp3",
-    "label": "Увімкнути музику"
+    "label": "Music STOP"
   },
   "hero": {
     "enabled": true,
@@ -41,30 +41,71 @@
       "З того моменту ми зрозуміли, що знайшли те саме рідкісне відчуття спорідненості. Ми пройшли через безліч подорожей, тихих вечорів та спільних мрій, і тепер готові розпочати новий розділ нашого життя разом."
     ],
     "images": [
-      { "src": "assets/img/story-1.jpg", "alt": "Наше фото" },
-      { "src": "assets/img/story-2.jpg", "alt": "Наше фото" }
+      {
+        "src": "assets/img/story-1.jpg",
+        "alt": "Наше фото"
+      },
+      {
+        "src": "assets/img/story-2.jpg",
+        "alt": "Наше фото"
+      }
     ]
   },
   "gallery": {
     "enabled": true,
     "heading": "Наші моменти",
     "images": [
-      { "src": "assets/img/gallery-1.jpg", "alt": "Фото пари" },
-      { "src": "assets/img/gallery-2.jpg", "alt": "Фото пари" },
-      { "src": "assets/img/gallery-3.jpg", "alt": "Фото пари" },
-      { "src": "assets/img/gallery-4.jpg", "alt": "Фото пари" },
-      { "src": "assets/img/gallery-5.jpg", "alt": "Фото пари" }
+      {
+        "src": "assets/img/gallery-1.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-2.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-3.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-4.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-5.jpg",
+        "alt": "Фото пари"
+      }
     ]
   },
   "timeline": {
     "enabled": true,
     "heading": "Таймінг нашого свята",
     "items": [
-      { "time": "15:00", "title": "Вітальний фуршет", "note": "Welcome drink" },
-      { "time": "16:00", "title": "Виїзна церемонія", "note": "Ceremony" },
-      { "time": "17:30", "title": "Святкова вечеря", "note": "Wedding dinner" },
-      { "time": "21:00", "title": "Танцювальна програма", "note": "Party time" },
-      { "time": "23:00", "title": "Завершення свята", "note": "Grand finale" }
+      {
+        "time": "15:00",
+        "title": "Вітальний фуршет",
+        "note": "Welcome drink"
+      },
+      {
+        "time": "16:00",
+        "title": "Виїзна церемонія",
+        "note": "Ceremony"
+      },
+      {
+        "time": "17:30",
+        "title": "Святкова вечеря",
+        "note": "Wedding dinner"
+      },
+      {
+        "time": "21:00",
+        "title": "Танцювальна програма",
+        "note": "Party time"
+      },
+      {
+        "time": "23:00",
+        "title": "Завершення свята",
+        "note": "Grand finale"
+      }
     ]
   },
   "dressCode": {
@@ -72,11 +113,26 @@
     "heading": "Дрес-код",
     "text": "Будемо вдячні, якщо ви підтримаєте колірну гаму нашого весілля при виборі вбрання.",
     "palette": [
-      { "name": "Cream", "hex": "#EAE3D9" },
-      { "name": "Sand", "hex": "#D4C3B1" },
-      { "name": "Mocha", "hex": "#B29474" },
-      { "name": "Stone", "hex": "#8E8D8A" },
-      { "name": "Black", "hex": "#2E2E2E" }
+      {
+        "name": "Cream",
+        "hex": "#EAE3D9"
+      },
+      {
+        "name": "Sand",
+        "hex": "#D4C3B1"
+      },
+      {
+        "name": "Mocha",
+        "hex": "#B29474"
+      },
+      {
+        "name": "Stone",
+        "hex": "#8E8D8A"
+      },
+      {
+        "name": "Black",
+        "hex": "#2E2E2E"
+      }
     ]
   },
   "venues": {
