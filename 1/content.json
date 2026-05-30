@@ -1,30 +1,30 @@
 {
   "meta": {
-    "title": "Ім'я & Ім'я | Ми одружуємось",
-    "description": "Раді запросити вас розділити цей особливий день разом з нами.",
+    "title": "",
+    "description": "",
     "lang": "uk",
     "ogImage": "assets/img/og.jpg",
     "favicon": "assets/img/favicon.png"
   },
   "couple": {
-    "groom": "1",
-    "bride": "Олена",
+    "groom": "",
+    "bride": "",
     "separator": "&"
   },
   "date": {
-    "iso": "2026-09-20T16:00:00+03:00",
-    "weekday": "Неділя",
-    "display": "20 вересня 2026"
+    "iso": "",
+    "weekday": "",
+    "display": ""
   },
   "music": {
-    "enabled": true,
-    "src": "assets/audio/background.mp3",
+    "enabled": false,
+    "src": "",
     "label": "Увімкнути музику"
   },
   "hero": {
     "enabled": true,
     "eyebrow": "Ми одружуємось",
-    "subtitle": "Раді запросити вас розділити цей особливий день разом з нами",
+    "subtitle": "",
     "backgroundImage": "assets/img/placeholder-hero.svg",
     "scrollHint": "Гортайте вниз"
   },
@@ -37,75 +37,31 @@
     "enabled": true,
     "heading": "Як ми зустрілись",
     "paragraphs": [
-      "Тут буде ваша історія: де і як ви познайомились, що стало тим самим моментом.",
-      "Додайте кілька теплих речень про шлях, який привів вас до цього дня."
+      ""
     ],
     "images": [
-      {
-        "src": "assets/img/placeholder-portrait.svg",
-        "alt": "Наше фото"
-      },
-      {
-        "src": "assets/img/placeholder-portrait.svg",
-        "alt": "Наше фото"
-      }
+      { "src": "assets/img/placeholder-portrait.svg", "alt": "Наше фото" },
+      { "src": "assets/img/placeholder-portrait.svg", "alt": "Наше фото" }
     ]
   },
   "gallery": {
     "enabled": true,
     "heading": "Наші моменти",
     "images": [
-      {
-        "src": "assets/img/placeholder-square.svg",
-        "alt": "Фото пари"
-      },
-      {
-        "src": "assets/img/placeholder-square.svg",
-        "alt": "Фото пари"
-      },
-      {
-        "src": "assets/img/placeholder-square.svg",
-        "alt": "Фото пари"
-      },
-      {
-        "src": "assets/img/placeholder-square.svg",
-        "alt": "Фото пари"
-      },
-      {
-        "src": "assets/img/placeholder-square.svg",
-        "alt": "Фото пари"
-      }
+      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
+      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
+      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
+      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
+      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" }
     ]
   },
   "timeline": {
     "enabled": true,
     "heading": "Таймінг нашого свята",
     "items": [
-      {
-        "time": "15:00",
-        "title": "Вітальний фуршет",
-        "note": "Welcome drink"
-      },
-      {
-        "time": "16:00",
-        "title": "Виїзна церемонія",
-        "note": "Ceremony"
-      },
-      {
-        "time": "17:30",
-        "title": "Святкова вечеря",
-        "note": "Wedding dinner"
-      },
-      {
-        "time": "21:00",
-        "title": "Танцювальна програма",
-        "note": "Party time"
-      },
-      {
-        "time": "23:00",
-        "title": "Завершення свята",
-        "note": "Grand finale"
-      }
+      { "time": "", "title": "", "note": "" },
+      { "time": "", "title": "", "note": "" },
+      { "time": "", "title": "", "note": "" }
     ]
   },
   "dressCode": {
@@ -113,26 +69,11 @@
     "heading": "Дрес-код",
     "text": "Будемо вдячні, якщо ви підтримаєте колірну гаму нашого весілля при виборі вбрання.",
     "palette": [
-      {
-        "name": "Cream",
-        "hex": "#EAE3D9"
-      },
-      {
-        "name": "Sand",
-        "hex": "#D4C3B1"
-      },
-      {
-        "name": "Mocha",
-        "hex": "#B29474"
-      },
-      {
-        "name": "Stone",
-        "hex": "#8E8D8A"
-      },
-      {
-        "name": "Black",
-        "hex": "#2E2E2E"
-      }
+      { "name": "Cream", "hex": "#EAE3D9" },
+      { "name": "Sand", "hex": "#D4C3B1" },
+      { "name": "Mocha", "hex": "#B29474" },
+      { "name": "Stone", "hex": "#8E8D8A" },
+      { "name": "Black", "hex": "#2E2E2E" }
     ]
   },
   "venues": {
@@ -141,20 +82,20 @@
     "items": [
       {
         "label": "Церемонія",
-        "name": "Назва місця",
-        "address": "Адреса церемонії",
-        "time": "Початок о 16:00",
+        "name": "",
+        "address": "",
+        "time": "",
         "image": "assets/img/placeholder-wide.svg",
-        "mapQuery": "Адреса церемонії",
+        "mapQuery": "",
         "routeLabel": "Побудувати маршрут"
       },
       {
         "label": "Банкет",
-        "name": "Назва ресторану",
-        "address": "Адреса банкету",
-        "time": "Початок о 17:30",
+        "name": "",
+        "address": "",
+        "time": "",
         "image": "assets/img/placeholder-wide.svg",
-        "mapQuery": "Адреса банкету",
+        "mapQuery": "",
         "routeLabel": "Побудувати маршрут"
       }
     ]
@@ -162,7 +103,7 @@
   "rsvp": {
     "enabled": true,
     "heading": "RSVP",
-    "intro": "Будь ласка, підтвердіть вашу присутність до 1 вересня 2026 року.",
+    "intro": "Будь ласка, підтвердіть вашу присутність.",
     "appsScriptUrl": "",
     "fields": {
       "name": "Ваше ім'я та прізвище",
@@ -182,7 +123,7 @@
     "enabled": true,
     "heading": "Наш Telegram чат",
     "text": "Приєднуйтесь до нашої спільноти, щоб ділитися фотографіями та отримувати новини про свято.",
-    "url": "https://t.me/",
+    "url": "",
     "buttonLabel": "Приєднатися"
   },
   "footer": {

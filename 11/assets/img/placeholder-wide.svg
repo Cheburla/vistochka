@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Місце для фото локації">
-  <rect width="1280" height="720" fill="#eae8e4"/>
-  <rect x="24" y="24" width="1232" height="672" fill="none" stroke="#c4c7c7" stroke-width="1.5"/>
-  <path d="M600 360c0-22 18-40 40-40s40 18 40 40" fill="none" stroke="#988154" stroke-width="2"/>
-  <circle cx="640" cy="320" r="56" fill="none" stroke="#988154" stroke-width="2"/>
-  <text x="640" y="470" font-family="Georgia, 'EB Garamond', serif" font-size="30" fill="#747878" text-anchor="middle" letter-spacing="6">ФОТО ЛОКАЦІЇ</text>
-</svg>
