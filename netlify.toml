@@ -7,3 +7,4 @@
 
 [build.environment]
   SITE_URL = "https://vistochka.pp.ua"
+  NODE_VERSION = "20"
