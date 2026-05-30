@@ -7,7 +7,7 @@
     "favicon": "assets/img/favicon.png"
   },
   "couple": {
-    "groom": "Михайло",
+    "groom": "1",
     "bride": "Олена",
     "separator": "&"
   },
@@ -41,30 +41,71 @@
       "Додайте кілька теплих речень про шлях, який привів вас до цього дня."
     ],
     "images": [
-      { "src": "assets/img/placeholder-portrait.svg", "alt": "Наше фото" },
-      { "src": "assets/img/placeholder-portrait.svg", "alt": "Наше фото" }
+      {
+        "src": "assets/img/placeholder-portrait.svg",
+        "alt": "Наше фото"
+      },
+      {
+        "src": "assets/img/placeholder-portrait.svg",
+        "alt": "Наше фото"
+      }
     ]
   },
   "gallery": {
     "enabled": true,
     "heading": "Наші моменти",
     "images": [
-      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
-      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
-      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
-      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" },
-      { "src": "assets/img/placeholder-square.svg", "alt": "Фото пари" }
+      {
+        "src": "assets/img/placeholder-square.svg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/placeholder-square.svg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/placeholder-square.svg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/placeholder-square.svg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/placeholder-square.svg",
+        "alt": "Фото пари"
+      }
     ]
   },
   "timeline": {
     "enabled": true,
     "heading": "Таймінг нашого свята",
     "items": [
-      { "time": "15:00", "title": "Вітальний фуршет", "note": "Welcome drink" },
-      { "time": "16:00", "title": "Виїзна церемонія", "note": "Ceremony" },
-      { "time": "17:30", "title": "Святкова вечеря", "note": "Wedding dinner" },
-      { "time": "21:00", "title": "Танцювальна програма", "note": "Party time" },
-      { "time": "23:00", "title": "Завершення свята", "note": "Grand finale" }
+      {
+        "time": "15:00",
+        "title": "Вітальний фуршет",
+        "note": "Welcome drink"
+      },
+      {
+        "time": "16:00",
+        "title": "Виїзна церемонія",
+        "note": "Ceremony"
+      },
+      {
+        "time": "17:30",
+        "title": "Святкова вечеря",
+        "note": "Wedding dinner"
+      },
+      {
+        "time": "21:00",
+        "title": "Танцювальна програма",
+        "note": "Party time"
+      },
+      {
+        "time": "23:00",
+        "title": "Завершення свята",
+        "note": "Grand finale"
+      }
     ]
   },
   "dressCode": {
@@ -72,11 +113,26 @@
     "heading": "Дрес-код",
     "text": "Будемо вдячні, якщо ви підтримаєте колірну гаму нашого весілля при виборі вбрання.",
     "palette": [
-      { "name": "Cream", "hex": "#EAE3D9" },
-      { "name": "Sand", "hex": "#D4C3B1" },
-      { "name": "Mocha", "hex": "#B29474" },
-      { "name": "Stone", "hex": "#8E8D8A" },
-      { "name": "Black", "hex": "#2E2E2E" }
+      {
+        "name": "Cream",
+        "hex": "#EAE3D9"
+      },
+      {
+        "name": "Sand",
+        "hex": "#D4C3B1"
+      },
+      {
+        "name": "Mocha",
+        "hex": "#B29474"
+      },
+      {
+        "name": "Stone",
+        "hex": "#8E8D8A"
+      },
+      {
+        "name": "Black",
+        "hex": "#2E2E2E"
+      }
     ]
   },
   "venues": {
