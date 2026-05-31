@@ -530,6 +530,9 @@
     }
   }
   async function injectOG(pub) {
+    // Use the shared root index.html as the template for every event page, so all
+    // events always load the current script/style versions (no per-event drift).
+    var template = await (await (await pub.getFileHandle("index.html")).getFile()).text();
     for await (var entry of pub.values()) {
       if (entry.kind !== "directory" || EXCLUDE_DIRS.indexOf(entry.name) > -1) continue;
       if (!(await exists(entry, "content.json")) || !(await exists(entry, "index.html"))) continue;
@@ -538,7 +541,7 @@
       var title = ogEsc(c.meta && c.meta.title), desc = ogEsc(c.meta && c.meta.description);
       var url = SITE + "/" + s + "/", img = SITE + "/" + s + "/" + ((c.hero && c.hero.backgroundImage) || "");
       var ih = await entry.getFileHandle("index.html");
-      var html = await (await ih.getFile()).text();
+      var html = template;
       html = html.replace(/(<title>)[\s\S]*?(<\/title>)/, function (m, a, b) { return a + title + b; });
       html = html.replace(/(<meta name="description" content=")[^"]*(">)/, function (m, a, b) { return a + desc + b; });
       html = html.replace(/(<meta property="og:title" content=")[^"]*(">)/, function (m, a, b) { return a + title + b; });

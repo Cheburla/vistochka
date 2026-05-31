@@ -33,20 +33,22 @@ async function copyAll() {
 }
 
 async function injectOG() {
+  // Use the shared root index.html as the template for EVERY event page, so all
+  // events always load the current script/style versions (no per-event drift,
+  // which otherwise leaves old events on stale cache-busted JS).
+  const template = await readFile(join(PUB, "index.html"), "utf8");
   for (const e of await readdir(PUB, { withFileTypes: true })) {
     if (!e.isDirectory()) continue;
     const dir = join(PUB, e.name);
-    let cj, html;
-    try {
-      cj = await readFile(join(dir, "content.json"), "utf8");
-      html = await readFile(join(dir, "index.html"), "utf8");
-    } catch { continue; }
+    let cj;
+    try { cj = await readFile(join(dir, "content.json"), "utf8"); }
+    catch { continue; }
     let c; try { c = JSON.parse(cj); } catch { continue; }
     const title = esc(c.meta?.title);
     const desc = esc(c.meta?.description);
     const url = `${SITE}/${e.name}/`;
     const img = `${SITE}/${e.name}/${(c.hero?.backgroundImage) || ""}`;
-    html = html
+    let html = template
       .replace(/(<title>)[\s\S]*?(<\/title>)/, (m, a, b) => a + title + b)
       .replace(/(<meta name="description" content=")[^"]*(">)/, (m, a, b) => a + desc + b)
       .replace(/(<meta property="og:title" content=")[^"]*(">)/, (m, a, b) => a + title + b)
