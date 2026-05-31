@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "title": "Михайло & Олена | Ми одружуємось",
+    "description": "Раді запросити вас розділити цей особливий день разом з нами. 20 вересня 2026 року.",
+    "lang": "uk",
+    "ogImage": "assets/img/og.jpg",
+    "favicon": "assets/img/favicon.png"
+  },
+  "couple": {
+    "groom": "Михайло",
+    "bride": "Олена",
+    "separator": "&"
+  },
+  "date": {
+    "iso": "2026-09-20T16:00:00+03:00",
+    "weekday": "Неділя",
+    "display": "20 вересня 2026"
+  },
+  "music": {
+    "enabled": false,
+    "src": "assets/audio/background.mp3",
+    "label": "Music STOP"
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "Ми одружуємось",
+    "subtitle": "Раді запросити вас розділити цей особливий день разом з нами",
+    "backgroundImage": "assets/img/hero.jpg",
+    "scrollHint": "Гортайте вниз"
+  },
+  "countdown": {
+    "enabled": true,
+    "heading": "До весілля лишилось",
+    "finishedText": "Сьогодні наш день. Дякуємо, що ви з нами."
+  },
+  "story": {
+    "enabled": true,
+    "heading": "Як ми зустрілись",
+    "paragraphs": [
+      "Наша історія розпочалася одного теплого весняного вечора у невеликій кавʼярні в центрі міста. Те, що планувалося як коротка зустріч за горнятком кави, перетворилося на багатогодинну прогулянку під зоряним небом.",
+      "З того моменту ми зрозуміли, що знайшли те саме рідкісне відчуття спорідненості. Ми пройшли через безліч подорожей, тихих вечорів та спільних мрій, і тепер готові розпочати новий розділ нашого життя разом."
+    ],
+    "images": [
+      {
+        "src": "assets/img/story-1.jpg",
+        "alt": "Наше фото"
+      },
+      {
+        "src": "assets/img/story-2.jpg",
+        "alt": "Наше фото"
+      }
+    ]
+  },
+  "gallery": {
+    "enabled": true,
+    "heading": "Наші моменти",
+    "images": [
+      {
+        "src": "assets/img/gallery-1.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-2.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-3.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-4.jpg",
+        "alt": "Фото пари"
+      },
+      {
+        "src": "assets/img/gallery-5.jpg",
+        "alt": "Фото пари"
+      }
+    ]
+  },
+  "timeline": {
+    "enabled": true,
+    "heading": "Таймінг нашого свята",
+    "items": [
+      {
+        "time": "15:00",
+        "title": "Вітальний фуршет",
+        "note": "Welcome drink"
+      },
+      {
+        "time": "16:00",
+        "title": "Виїзна церемонія",
+        "note": "Ceremony"
+      },
+      {
+        "time": "17:30",
+        "title": "Святкова вечеря",
+        "note": "Wedding dinner"
+      },
+      {
+        "time": "21:00",
+        "title": "Танцювальна програма",
+        "note": "Party time"
+      },
+      {
+        "time": "23:00",
+        "title": "Завершення свята",
+        "note": "Grand finale"
+      }
+    ]
+  },
+  "dressCode": {
+    "enabled": true,
+    "heading": "Дрес-код",
+    "text": "Будемо вдячні, якщо ви підтримаєте колірну гаму нашого весілля при виборі вбрання.",
+    "palette": [
+      {
+        "name": "Cream",
+        "hex": "#EAE3D9"
+      },
+      {
+        "name": "Sand",
+        "hex": "#D4C3B1"
+      },
+      {
+        "name": "Mocha",
+        "hex": "#B29474"
+      },
+      {
+        "name": "Stone",
+        "hex": "#8E8D8A"
+      },
+      {
+        "name": "Black",
+        "hex": "#2E2E2E"
+      }
+    ]
+  },
+  "venues": {
+    "enabled": true,
+    "heading": "Адреси святкування",
+    "items": [
+      {
+        "label": "Церемонія",
+        "name": "Парк \"Перемога\"",
+        "address": "вул. Паркова, 5, Київ",
+        "time": "Початок о 16:00",
+        "image": "assets/img/venue-ceremony.jpg",
+        "mapQuery": "Парк Перемога, вул. Паркова 5, Київ",
+        "routeLabel": "Побудувати маршрут"
+      },
+      {
+        "label": "Банкет",
+        "name": "Ресторан \"Grand Hall\"",
+        "address": "бул. Лесі Українки, 24, Київ",
+        "time": "Початок о 17:30",
+        "image": "assets/img/venue-banquet.jpg",
+        "mapQuery": "Grand Hall, бул. Лесі Українки 24, Київ",
+        "routeLabel": "Побудувати маршрут"
+      }
+    ]
+  },
+  "rsvp": {
+    "enabled": true,
+    "heading": "RSVP",
+    "intro": "Будь ласка, підтвердіть вашу присутність до 1 вересня 2026 року.",
+    "appsScriptUrl": "https://api.sheetmonkey.io/form/7rZdQTZaKGV2mDRu7CEJ6Y",
+    "fields": {
+      "name": "Ваше ім'я та прізвище",
+      "attendance": "Чи зможете ви прийти?",
+      "attendanceYes": "Так, з радістю",
+      "attendanceNo": "На жаль, ні",
+      "guests": "Кількість гостей",
+      "notes": "Ваші побажання та переваги в їжі"
+    },
+    "guestsMax": 5,
+    "submitLabel": "Відправити",
+    "sendingLabel": "Надсилаємо...",
+    "successMessage": "Дякуємо! Вашу відповідь збережено.",
+    "errorMessage": "Щось пішло не так. Спробуйте ще раз або напишіть нам у Telegram."
+  },
+  "telegram": {
+    "enabled": true,
+    "heading": "Наш Telegram чат",
+    "text": "Приєднуйтесь до нашої спільноти, щоб ділитися фотографіями та отримувати новини про свято.",
+    "url": "https://t.me/",
+    "buttonLabel": "Приєднатися"
+  },
+  "footer": {
+    "text": "Святкуйте з нами!",
+    "signature": "© 2026 Михайло та Олена"
+  }
+}
