@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="uk"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#261900",
+                        "surface-dim": "#dddad2",
+                        "on-background": "#1c1c17",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#f1ede6",
+                        "secondary": "#645d55",
+                        "primary-fixed": "#fcdfab",
+                        "surface": "#fdf9f1",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1c17",
+                        "surface-container-low": "#f7f3eb",
+                        "primary": "#705b32",
+                        "surface-bright": "#fdf9f1",
+                        "on-primary-fixed-variant": "#57441d",
+                        "primary-container": "#c2a878",
+                        "on-secondary-fixed": "#201b15",
+                        "on-tertiary-fixed-variant": "#5c430a",
+                        "on-tertiary-fixed": "#271900",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-tertiary-container": "#533b03",
+                        "on-surface-variant": "#4d463b",
+                        "surface-variant": "#e6e2da",
+                        "inverse-primary": "#dfc391",
+                        "surface-tint": "#705b32",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#ece1d7",
+                        "secondary-fixed": "#ece1d7",
+                        "primary-fixed-dim": "#dfc391",
+                        "outline": "#7e766a",
+                        "surface-container-high": "#ece8e0",
+                        "on-primary-container": "#4f3d17",
+                        "on-secondary-container": "#6b635b",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0e8",
+                        "background": "#fdf9f1",
+                        "tertiary-fixed-dim": "#e6c17e",
+                        "on-secondary-fixed-variant": "#4c463e",
+                        "outline-variant": "#cfc5b7",
+                        "tertiary-container": "#c9a666",
+                        "inverse-surface": "#31302b",
+                        "secondary-fixed-dim": "#cfc5bb",
+                        "surface-container-highest": "#e6e2da",
+                        "tertiary": "#765a21",
+                        "gold-deep": "#9A7B3F"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "base": "8px",
+                        "container-max": "1140px",
+                        "gutter": "32px",
+                        "section-gap-mobile": "64px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "button": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "button": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-md-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["42px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "500"}],
+                        "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #dfc391 0%, #9A7B3F 50%, #dfc391 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-foil-border {
+            border: 1px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(135deg, #dfc391, #9A7B3F);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+        .timeline-line::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #9A7B3F;
+            transform: rotate(45deg);
+            left: -2px;
+            top: 50%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-headline-sm text-headline-sm text-primary tracking-widest">M&amp;О</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors duration-300" href="#timing">Програма</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors duration-300" href="#locations">Локації</a>
+<a class="bg-primary px-8 py-3 font-button text-button text-on-primary hover:bg-gold-deep transition-all duration-300" href="#rsvp">RSVP</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex flex-col items-center justify-center pt-16 bg-[#16130F] overflow-hidden">
+<div class="absolute inset-0 opacity-40 mix-blend-overlay">
+<img alt="Mikhail and Olena pre-wedding shoot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uiQxINHXJB-jdmjM_uY6TZByAhWlYqXWBeLFYVqeLHjGPqkWpEBiYyIjXSmDn3zK31ZvJSmab9f_MimwdBvMaeU3u1z3ZBzZK8BAyFqT8bmh9hXCQo3snljelye8wqdWmbDkoRlkT1bv-wuXUl9fLoH84GugP1X5FJpH-dC9oPM12QCFS34VgO6RbDKViFWo46RIyoaFChq7vp99Y0_3uCa7G7FzL7qjJKfuVDrWzYh12rAK7YqpLnfCw"/>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<p class="font-label-caps text-label-caps uppercase tracking-[0.3em] text-tertiary-fixed mb-8 animate-fade-in">Ми одружуємось</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg leading-tight gold-gradient mb-4">
+                Михайло <span class="block md:inline font-headline-md md:font-headline-md text-tertiary-fixed">&amp;</span> Олена
+            </h1>
+<div class="flex items-center justify-center gap-4 mb-12">
+<div class="h-[1px] w-12 bg-gold-deep"></div>
+<p class="font-headline-sm text-headline-sm text-tertiary-fixed-dim">20 вересня 2026</p>
+<div class="h-[1px] w-12 bg-gold-deep"></div>
+</div>
+<a class="inline-flex flex-col items-center gap-2 text-tertiary-fixed opacity-60 hover:opacity-100 transition-opacity" href="#countdown">
+<span class="font-label-caps text-[10px] uppercase tracking-widest">Гортайте</span>
+<span class="material-symbols-outlined animate-bounce">expand_more</span>
+</a>
+</div>
+</header>
+<!-- Countdown Section -->
+<section class="py-section-gap px-margin-mobile max-w-container-max mx-auto text-center" id="countdown">
+<h2 class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant mb-12">До весілля лишилось</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+<div class="flex flex-col">
+<span class="font-display-lg-mobile text-display-lg-mobile text-gold-deep mb-2">320</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant opacity-60">днів</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg-mobile text-display-lg-mobile text-gold-deep mb-2">14</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant opacity-60">годин</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg-mobile text-display-lg-mobile text-gold-deep mb-2">45</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant opacity-60">хвилин</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg-mobile text-display-lg-mobile text-gold-deep mb-2">12</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant opacity-60">секунд</span>
+</div>
+</div>
+</section>
+<!-- Love Story Section -->
+<section class="py-section-gap px-margin-mobile bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 mb-12 md:mb-0">
+<h2 class="font-headline-md text-headline-md text-gold-deep mb-8">Наша історія</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 italic leading-relaxed">
+                        Все почалося з одного погляду, що переріс у розмову довжиною в життя. Ми знайшли один в одному не просто партнерів, а цілий світ, наповнений підтримкою, сміхом та безмежною любов'ю.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Сьогодні ми стоїмо на порозі нової глави і будемо щасливі розділити цю мить з найближчими людьми. Наше свято — це не просто церемонія, це обіцянка берегти спільне щастя кожен день.
+                    </p>
+</div>
+<div class="md:col-span-7 relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="mt-12">
+<img alt="Beautiful artistic wedding portrait of Mikhail and Olena" class="w-full aspect-[3/4] object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0uiQxINHXJB-jdmjM_uY6TZByAhWlYqXWBeLFYVqeLHjGPqkWpEBiYyIjXSmDn3zK31ZvJSmab9f_MimwdBvMaeU3u1z3ZBzZK8BAyFqT8bmh9hXCQo3snljelye8wqdWmbDkoRlkT1bv-wuXUl9fLoH84GugP1X5FJpH-dC9oPM12QCFS34VgO6RbDKViFWo46RIyoaFChq7vp99Y0_3uCa7G7FzL7qjJKfuVDrWzYh12rAK7YqpLnfCw"/>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 border border-gold-deep/20 -z-10 translate-x-4 translate-y-4"></div>
+<img alt="Detail of white peonies and bridal hands" class="w-full aspect-[3/4] object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ug_56WdCh7aewvOv-T9izgMAhIVwgAzni7MVixPNwt4jyCp002ggNgxEsZYWI13syKA93_eTy4J7oJ7rTJuc6R5hi3IDKNFVIYwfRLlFfjvmu-f1In5fyCCQJeJ22Tdz3FYD007-MtQK5INbMW-t01vWSJgvoa2fXWwC_0eVXxwnMWeK-1k4vhr14ER0vpALNJROsKMdLOtUwGdcVJG6hHwULVpJ4e1h--2HMSbie63itsTAsDVM9InpA"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-section-gap px-margin-mobile max-w-container-max mx-auto">
+<h2 class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-center mb-16">Галерея моментів</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-[800px]">
+<div class="md:col-span-8 h-full relative group overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic wide shot of a wedding couple embracing in a grand, sun-drenched marble hall. The soft, natural light emphasizes the minimalist textures of the stone walls and the delicate details of the bride's dress. The overall mood is ethereal and high-fashion, with a focus on quiet luxury and emotional depth." src="https://lh3.googleusercontent.com/aida/ADBb0uiQxINHXJB-jdmjM_uY6TZByAhWlYqXWBeLFYVqeLHjGPqkWpEBiYyIjXSmDn3zK31ZvJSmab9f_MimwdBvMaeU3u1z3ZBzZK8BAyFqT8bmh9hXCQo3snljelye8wqdWmbDkoRlkT1bv-wuXUl9fLoH84GugP1X5FJpH-dC9oPM12QCFS34VgO6RbDKViFWo46RIyoaFChq7vp99Y0_3uCa7G7FzL7qjJKfuVDrWzYh12rAK7YqpLnfCw"/>
+<div class="absolute inset-0 border-[0px] group-hover:border-[1px] border-gold-deep transition-all duration-500 m-4 pointer-events-none"></div>
+</div>
+<div class="md:col-span-4 grid grid-rows-2 gap-4">
+<div class="h-full relative group overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A delicate, artistic close-up of a bride's hands adorned with a simple gold ring, holding a lush bouquet of creamy white peonies. The background is softly blurred to emphasize the texture of the petals and the warmth of the gold. The image captures a sense of intimate elegance and modern bridal sophistication." src="https://lh3.googleusercontent.com/aida/ADBb0ug_56WdCh7aewvOv-T9izgMAhIVwgAzni7MVixPNwt4jyCp002ggNgxEsZYWI13syKA93_eTy4J7oJ7rTJuc6R5hi3IDKNFVIYwfRLlFfjvmu-f1In5fyCCQJeJ22Tdz3FYD007-MtQK5INbMW-t01vWSJgvoa2fXWwC_0eVXxwnMWeK-1k4vhr14ER0vpALNJROsKMdLOtUwGdcVJG6hHwULVpJ4e1h--2HMSbie63itsTAsDVM9InpA"/>
+<div class="absolute inset-0 border-[0px] group-hover:border-[1px] border-gold-deep transition-all duration-500 m-4 pointer-events-none"></div>
+</div>
+<div class="h-full relative group overflow-hidden">
+<div class="w-full h-full bg-surface-container flex items-center justify-center p-8 text-center border border-outline-variant/30">
+<p class="font-headline-sm text-headline-sm text-gold-deep italic">"Love is the master key that opens the gates of happiness"</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timing Section -->
+<section class="py-section-gap px-margin-mobile bg-surface overflow-hidden" id="timing">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-center text-gold-deep mb-20">Програма дня</h2>
+<div class="relative border-l border-gold-deep ml-4 md:ml-0 md:flex md:flex-col md:items-center md:border-l-0">
+<!-- Center vertical line for desktop -->
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gold-deep -translate-x-1/2"></div>
+<!-- Event 1 -->
+<div class="mb-16 md:mb-24 w-full relative pl-8 md:pl-0">
+<div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-gold-deep rotate-45 top-2 z-10"></div>
+<div class="md:w-1/2 md:pr-16 md:text-right">
+<span class="font-headline-sm text-headline-sm text-gold-deep mb-2 block">15:00</span>
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface mb-2">Welcome Drinks</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Збір гостей та аперитив на терасі</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="mb-16 md:mb-24 w-full relative pl-8 md:pl-0">
+<div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-gold-deep rotate-45 top-2 z-10"></div>
+<div class="md:w-1/2 md:ml-auto md:pl-16">
+<span class="font-headline-sm text-headline-sm text-gold-deep mb-2 block">16:00</span>
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface mb-2">Церемонія</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Найважливіші слова під відкритим небом</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="mb-16 md:mb-24 w-full relative pl-8 md:pl-0">
+<div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-gold-deep rotate-45 top-2 z-10"></div>
+<div class="md:w-1/2 md:pr-16 md:text-right">
+<span class="font-headline-sm text-headline-sm text-gold-deep mb-2 block">17:30</span>
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface mb-2">Вечеря</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Гастрономічна програма та тости</p>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="w-full relative pl-8 md:pl-0">
+<div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-gold-deep rotate-45 top-2 z-10"></div>
+<div class="md:w-1/2 md:ml-auto md:pl-16">
+<span class="font-headline-sm text-headline-sm text-gold-deep mb-2 block">21:00</span>
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface mb-2">Танці та торт</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Святкова атмосфера до останнього гостя</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dress-code Section -->
+<section class="py-section-gap px-margin-mobile text-center">
+<div class="max-w-2xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-gold-deep mb-8">Дрес-код</h2>
+<p class="font-body-lg text-body-lg mb-12">Будемо вдячні, якщо ви підтримаєте колірну палітру нашого весілля:</p>
+<div class="flex flex-wrap justify-center gap-6">
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-full bg-[#9A7B3F] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] uppercase tracking-tighter">Gold</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-full bg-[#FDF9F1] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] uppercase tracking-tighter">Cream</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-full bg-[#E2D5BD] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] uppercase tracking-tighter">Sand</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-full bg-[#7E766A] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] uppercase tracking-tighter">Stone</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-full bg-[#1C1C17] border border-outline-variant"></div>
+<span class="font-label-caps text-[10px] uppercase tracking-tighter">Black</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Locations Section -->
+<section class="py-section-gap px-margin-mobile bg-surface-container-low" id="locations">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-md text-headline-md text-center text-gold-deep mb-16">Локації</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Ceremony Card -->
+<div class="bg-surface p-10 border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-gold-deep text-4xl mb-6">church</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">Церемонія</h3>
+<p class="font-body-md text-body-md mb-8">Заміський комплекс "Grand Residence"<br/>вул. Соснова, 15</p>
+<a class="inline-flex items-center gap-2 border border-gold-deep px-8 py-3 font-button text-button text-gold-deep hover:bg-gold-deep hover:text-on-primary transition-all duration-300 uppercase" href="#">
+                        Побудувати маршрут
+                    </a>
+</div>
+<!-- Banquet Card -->
+<div class="bg-surface p-10 border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-gold-deep text-4xl mb-6">restaurant</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">Бенкет</h3>
+<p class="font-body-md text-body-md mb-8">Головна зала "Ballroom"<br/>вул. Соснова, 15</p>
+<a class="inline-flex items-center gap-2 border border-gold-deep px-8 py-3 font-button text-button text-gold-deep hover:bg-gold-deep hover:text-on-primary transition-all duration-300 uppercase" href="#">
+                        Побудувати маршрут
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- RSVP Section -->
+<section class="py-section-gap px-margin-mobile" id="rsvp">
+<div class="max-w-2xl mx-auto bg-surface-container p-8 md:p-16 border border-outline-variant relative">
+<div class="absolute -inset-2 border border-gold-deep/10 pointer-events-none"></div>
+<h2 class="font-headline-md text-headline-md text-center text-gold-deep mb-4">Підтвердіть присутність</h2>
+<p class="font-body-md text-body-md text-center mb-12 opacity-70 italic">Будь ласка, надайте відповідь до 1 вересня</p>
+<form class="space-y-8">
+<div class="relative group">
+<label class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant block mb-2">Ваше ім'я</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:ring-0 focus:border-gold-deep transition-colors py-2 px-0 text-on-surface font-body-md" placeholder="Введіть повне ім'я" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant block mb-4">Чи зможете ви бути присутніми?</label>
+<div class="flex gap-4">
+<label class="flex-1 cursor-pointer group">
+<input class="hidden peer" name="presence" type="radio"/>
+<div class="border border-outline-variant p-4 text-center peer-checked:border-gold-deep peer-checked:text-gold-deep group-hover:bg-surface-bright transition-all font-button text-button uppercase">Так, з радістю</div>
+</label>
+<label class="flex-1 cursor-pointer group">
+<input class="hidden peer" name="presence" type="radio"/>
+<div class="border border-outline-variant p-4 text-center peer-checked:border-gold-deep peer-checked:text-gold-deep group-hover:bg-surface-bright transition-all font-button text-button uppercase">На жаль, ні</div>
+</label>
+</div>
+</div>
+<div class="relative group">
+<label class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant block mb-2">Побажання щодо меню / алергії</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:ring-0 focus:border-gold-deep transition-colors py-2 px-0 text-on-surface font-body-md" placeholder="Наприклад: вегетаріанське меню" type="text"/>
+</div>
+<button class="w-full bg-gold-deep text-on-primary font-button text-button uppercase py-5 hover:bg-primary transition-all duration-300" type="submit">
+                    Відправити
+                </button>
+</form>
+</div>
+</section>
+<!-- Telegram Section -->
+<section class="pb-section-gap px-margin-mobile">
+<div class="max-w-container-max mx-auto text-center border-t border-outline-variant pt-20">
+<h2 class="font-headline-sm text-headline-sm mb-6">Спілкуйтеся з нами</h2>
+<p class="font-body-md text-body-md mb-8 opacity-70">Додавайтесь у наш весільний чат для оперативних новин</p>
+<a class="inline-flex items-center gap-3 border border-gold-deep px-10 py-4 font-button text-button text-gold-deep hover:bg-gold-deep hover:text-on-primary transition-all duration-300 uppercase group" href="#">
+<span class="material-symbols-outlined">send</span>
+                Telegram чат
+            </a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-inverse-surface py-section-gap px-margin-mobile text-center text-white">
+<div class="max-w-container-max mx-auto flex flex-col items-center">
+<div class="font-headline-md text-headline-md text-tertiary-fixed mb-6">M&amp;О</div>
+<h3 class="font-headline-sm text-headline-sm text-tertiary-fixed-dim italic mb-12">Святкуйте з нами!</h3>
+<div class="flex gap-12 mb-16">
+<a class="text-tertiary-fixed opacity-60 hover:opacity-100 transition-opacity" href="https://instagram.com">Instagram</a>
+<a class="text-tertiary-fixed opacity-60 hover:opacity-100 transition-opacity" href="https://facebook.com">Facebook</a>
+</div>
+<div class="w-full max-w-[200px] h-[1px] bg-gold-deep opacity-30 mb-8"></div>
+<p class="font-label-caps text-[10px] uppercase tracking-[0.3em] opacity-40">© 2024 M&amp;H. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

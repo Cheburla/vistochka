@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="uk"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#261900",
+                    "surface-dim": "#dddad2",
+                    "on-background": "#1c1c17",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#f1ede6",
+                    "secondary": "#645d55",
+                    "primary-fixed": "#fcdfab",
+                    "surface": "#fdf9f1",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1c1c17",
+                    "surface-container-low": "#f7f3eb",
+                    "primary": "#705b32",
+                    "surface-bright": "#fdf9f1",
+                    "on-primary-fixed-variant": "#57441d",
+                    "primary-container": "#c2a878",
+                    "on-secondary-fixed": "#201b15",
+                    "on-tertiary-fixed-variant": "#5c430a",
+                    "on-tertiary-fixed": "#271900",
+                    "tertiary-fixed": "#ffdea5",
+                    "on-tertiary-container": "#533b03",
+                    "on-surface-variant": "#4d463b",
+                    "surface-variant": "#e6e2da",
+                    "inverse-primary": "#dfc391",
+                    "surface-tint": "#705b32",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ece1d7",
+                    "secondary-fixed": "#ece1d7",
+                    "primary-fixed-dim": "#dfc391",
+                    "outline": "#7e766a",
+                    "surface-container-high": "#ece8e0",
+                    "on-primary-container": "#4f3d17",
+                    "on-secondary-container": "#6b635b",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f4f0e8",
+                    "background": "#fdf9f1",
+                    "tertiary-fixed-dim": "#e6c17e",
+                    "on-secondary-fixed-variant": "#4c463e",
+                    "outline-variant": "#cfc5b7",
+                    "tertiary-container": "#c9a666",
+                    "inverse-surface": "#31302b",
+                    "secondary-fixed-dim": "#cfc5bb",
+                    "surface-container-highest": "#e6e2da",
+                    "tertiary": "#765a21",
+                    "gold-accent": "#C2A878",
+                    "gold-deep": "#705B32",
+                    "line": "#E2D5BD"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "base": "8px",
+                    "container-max": "1140px",
+                    "gutter": "32px",
+                    "section-gap-mobile": "64px",
+                    "section-gap": "120px"
+            },
+            "fontFamily": {
+                    "button": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "button": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-md-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["42px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "500"}],
+                    "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #fdf9f1; }
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #705b32 0%, #c2a878 50%, #705b32 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .diamond-divider {
+            position: relative;
+            height: 1px;
+            background: #E2D5BD;
+            width: 100%;
+        }
+        .diamond-divider::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 6px;
+            height: 6px;
+            background-color: #705b32;
+        }
+        .vertical-timeline-line {
+            width: 1px;
+            background: #C2A878;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @media (max-width: 768px) {
+            .vertical-timeline-line { left: 24px; }
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 h-16">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-full">
+<span class="font-headline-sm text-headline-sm text-primary uppercase tracking-wider">Вісточка</span>
+<div class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors" href="#services">Послуги</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors" href="#gallery">Галерея</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors" href="#contact">Контакти</a>
+</div>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 uppercase tracking-widest hover:opacity-90 transition-opacity">
+                Замовити
+            </button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter text-center mb-section-gap">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg gold-text-gradient mb-4">Вісточка</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic">Створюємо цифрові історії вашого кохання</p>
+<div class="mt-16 w-full aspect-[21/9] overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-1000">
+<img alt="Wedding Table Setting" class="w-full h-full object-cover" data-alt="A cinematic, high-fashion wedding reception scene captured in an editorial style. The image features a long, minimalist table set with white linen, delicate gold cutlery, and tall crystal glasses. Warm, ethereal sunlight streams through tall windows, illuminating the dust motes and creating a soft, dreamlike atmosphere. The color palette is strictly warm ivory, gold accents, and deep charcoal shadows, embodying quiet luxury and sophisticated romance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvOMNEgcEYgszvcLNlhrNkFPj7dM9rgXyyBctDBwo5EruUK4mRky7M8q3gpkomMg6Wy1yHY-MGiA_N-v6Nm6eDhTjMVfvM0YUpNTHI1Mv31SI5kIynKFoTOFWS5FOmXuyn8I3OiiUljf5QmdDz85b68jpsIyXtBpyxrrC45GHfr1CTWZxS6muM8vYpLx2OxbYw-Rds5cQuQyopSKv97JazAawXwTwo72hiuzStWZxjJqw7KDJuarFqbk4vlPw8jpLZ3w2E5NhrpA"/>
+<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+</div>
+</section>
+<!-- Divider -->
+<div class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<div class="diamond-divider"></div>
+</div>
+<!-- Description / Services Grid -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap" id="services">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary mb-8">Мистецтво цифрового запрошення</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                        Ваше весілля починається не з церемонії, а з першої звісточки. Ми створюємо персоналізовані веб-сайти, які стають елегантним передчуттям вашого свята. 
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12">
+                        Від інтерактивних RSVP-форм до детальних маршрутів — кожна деталь продумана, щоб ваші гості відчули особливу турботу ще до початку урочистості.
+                    </p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-default">
+<span class="material-symbols-outlined text-gold-accent" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface group-hover:text-gold-deep transition-colors">Унікальний дизайн</span>
+</div>
+<div class="flex items-center gap-4 group cursor-default">
+<span class="material-symbols-outlined text-gold-accent" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface group-hover:text-gold-deep transition-colors">QR-коди та RSVP</span>
+</div>
+<div class="flex items-center gap-4 group cursor-default">
+<span class="material-symbols-outlined text-gold-accent" style="font-variation-settings: 'FILL' 1;">language</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface group-hover:text-gold-deep transition-colors">Власний домен</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-6 md:col-start-7">
+<div class="relative bg-surface-container p-4">
+<img alt="Digital Invitation Mockup" class="w-full h-full object-cover shadow-sm" data-alt="A close-up, minimalist editorial photograph of a high-end digital tablet displaying a wedding invitation design. The design features elegant serif typography and gold floral accents on a cream background. Beside the tablet lies a single white peony and a gold fountain pen on a polished stone surface. The lighting is bright and airy, with soft shadows creating a sense of depth and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaL3WzDSs6CSCduGp0rU-9Nmm4QGj2waJCS41Wdjm9p0OTT4Nmj_ytaMLt4ej4OO_aWB-_XZsRMusUsDDu5AwxyjaUfhByThdc7cocYVs9gTeJldJytdZiSDwBEMPgUx7_lkoLfTInmOgZjXbjFIyZTIi8-7SQWBhxbAyVaYMpLIP-RlWUpl6FDPQbYndpKf3kbMAxUosIvfZtteWw3nI3z3AGCLNvV4QsvBxZcnjsCriwfMS3LZqy4EmtkOntRB6-rMntwx1JZA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Gallery -->
+<section class="bg-surface-container py-section-gap" id="gallery">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps uppercase text-primary mb-4 block">Натхнення</span>
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md">Наші роботи</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-8">
+<div class="aspect-[3/4] bg-white overflow-hidden border border-line p-2">
+<img alt="Work 1" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A minimalist wedding invitation layout featuring a monochrome black and white portrait of a couple. The typography is a mix of modern sans-serif and classic calligraphy, highlighted with gold foil accents. The composition is clean with significant negative space, evoking a sense of modern luxe. The photo is set against a warm ivory background texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkzuQ2WCfVqRUhEFRZUR_MSl0gJtOZ07IjmzesQlOKAU50IeiAfKG1KwYD9QrVjDLoa-rV1HbuW0Y33WK0_wUcouR-S_xxZpOFmDjW9BKj3pKDup77FwCQdWADGEweQ-lVmBBnzqaE_039oNU_niRnfHj3PhHYE7zTBk68lyETlVSN_Yfk10tieSlZ-SDpTfRzKLON3t1ETZnJzEKtloeqMh4lGGR2d2Qvrk-Pz-e2XmDoBaMfqB_TU2Q_awkoo2d0CP4pY7jJ2g"/>
+</div>
+<div class="aspect-square bg-white overflow-hidden border border-line p-2">
+<img alt="Work 2" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="An artistic flat lay of wedding stationery on a textured linen surface. The set includes a vellum envelope, a wax seal in antique gold, and a card with delicate line art of a botanical branch. Soft afternoon shadows play across the scene, creating a peaceful and expensive editorial look. The color palette is muted, focusing on beige, cream, and metallic gold." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3d6YFCsnFBvqH_-OjFwzErFNUBSmyECKh2rtDtmHgWMMXro9TEuLRY6Hy1ajcccUkVM1XN_1Yr8LwcWIpo86Vjrdx5LAvZf0v_uO7HJjijqRec3epwPhvYgJPj9jR_atA6Eh9RpQnSpxup3_T7HAo5Y2gNwmL6Hg4dpw6k_c6yMMOQ9BaQ4MvUAGIOljucW2Gkx1dHNCZKs5h3Q18NTrFH1I8AYDln6jaOFWWrbD2pdTQWGhv43ZmkTno8yS_K_aTT8Oi53FBEA"/>
+</div>
+</div>
+<div class="md:pt-12 space-y-8">
+<div class="aspect-[4/5] bg-white overflow-hidden border border-line p-2">
+<img alt="Work 3" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A premium wedding website interface displayed on a high-resolution smartphone. The mobile screen shows a 'Our Story' section with a high-key photograph of a couple and elegant gold headers. The phone is placed on a marble surface next to a gold-rimmed coffee cup and a sprig of jasmine. The aesthetic is bright, modern, and high-end editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5WNNxR0ruaVdh5V3ZfVa2ykY2JikE2mNsIGaxaGfizTP0hs5lBuC6v7bSs9A0oXQHXWKUpFE6LTg2LKNwV5JfEsdPeloAkvZ1k6CtI-K8aXZUOzN5OIt0796fXqBCa0FhQJtcQ7P_pfvcCeSSWudL5eQq8GvjIzZOFBDQvtW9AWL3_SVWUYnihGL_6bpWZ4mHQ_--Op6NqwyYB5I4QxonHPlOWYjo0CA3s9IIaj1R36MMDNoFLnxqysxc1D8gxRbxtGzfZN2mqA"/>
+</div>
+</div>
+<div class="space-y-8">
+<div class="aspect-[3/4] bg-white overflow-hidden border border-line p-2">
+<img alt="Work 4" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="An ethereal close-up of a wedding veil floating in the wind against a pale sunset sky. The photograph is shot with a shallow depth of field, focusing on the intricate lace edges. The lighting is warm and golden, reflecting a luxurious and romantic mood. The overall style is soft-focus and poetic, fitting for a high-end wedding brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzlInaikgqX3NKMfkDqNdeHzIUK6xc6TNG1ynrZMdEJQOlElTXhv2EwJ4OyYfZQJj9w-RYejjGIUwF1dOz3_zHA3X7GG7ygnNg2K3hAKddFsLvp0y0ZzhJRjMS0aoma6IsW8_l9M-NdogX7Vb4M1-6w1DE4OAazZJD9kvhyermuE2hhy5RklDfYBxWG8I8LxlxrxxGLMPLxUHs5zKOjrRblDmpmR0BXxBFlt-Zeh2iWq4N-WhZMBaw9hnH5z5MS0j2JWioRPLBHg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap text-center" id="contact">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary mb-12">Зв'яжіться з нами</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+<!-- Telegram -->
+<a class="group p-8 border border-line hover:border-gold-accent transition-all duration-300" href="#">
+<div class="w-12 h-12 mx-auto mb-6 flex items-center justify-center border border-line group-hover:bg-primary group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-gold-deep group-hover:text-white">send</span>
+</div>
+<span class="block font-label-caps text-label-caps uppercase tracking-widest text-on-surface mb-2">Telegram</span>
+<span class="block font-body-md text-on-surface-variant opacity-60">@vistochka_agency</span>
+</a>
+<!-- Instagram -->
+<a class="group p-8 border border-line hover:border-gold-accent transition-all duration-300" href="#">
+<div class="w-12 h-12 mx-auto mb-6 flex items-center justify-center border border-line group-hover:bg-primary group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-gold-deep group-hover:text-white">camera</span>
+</div>
+<span class="block font-label-caps text-label-caps uppercase tracking-widest text-on-surface mb-2">Instagram</span>
+<span class="block font-body-md text-on-surface-variant opacity-60">@vistochka.wed</span>
+</a>
+<!-- Email -->
+<a class="group p-8 border border-line hover:border-gold-accent transition-all duration-300" href="#">
+<div class="w-12 h-12 mx-auto mb-6 flex items-center justify-center border border-line group-hover:bg-primary group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-gold-deep group-hover:text-white">mail</span>
+</div>
+<span class="block font-label-caps text-label-caps uppercase tracking-widest text-on-surface mb-2">Email</span>
+<span class="block font-body-md text-on-surface-variant opacity-60">hello@vistochka.ua</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-tertiary-fixed py-24 flex flex-col items-center text-center w-full">
+<div class="mb-8">
+<span class="font-headline-md text-headline-md text-tertiary-fixed italic">V</span>
+</div>
+<nav class="flex gap-8 mb-12">
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-surface-variant opacity-60 hover:text-tertiary-fixed-dim transition-all" href="#">Privacy</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-surface-variant opacity-60 hover:text-tertiary-fixed-dim transition-all" href="#">Contact</a>
+</nav>
+<div class="diamond-divider max-w-[200px] opacity-30 mb-12"></div>
+<p class="font-body-md text-body-md text-on-primary-fixed-variant opacity-60 tracking-wider">
+            © 2024 ВІСТОЧКА. ALL RIGHTS RESERVED.
+        </p>
+</footer>
+<script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

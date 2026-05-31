@@ -1,6 +1,7 @@
 /* landing.js — renders the brand landing (root "/" page) from site.json.
    Shared by boot.js (live root) and the Studio preview so both match.
-   Exposes window.WeddingLanding.render(cfg, mountEl). */
+   Sections (hero / about / portfolio / contacts / footer) render only when
+   their data is present. Exposes window.WeddingLanding.render(cfg, mountEl). */
 (function () {
   "use strict";
 
@@ -10,7 +11,6 @@
     });
   }
 
-  // Cohesive line icons (Feather/Lucide style, stroke).
   var ICONS = {
     telegram: '<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
     instagram: '<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
@@ -25,25 +25,84 @@
       'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + "</svg>";
   }
 
-  function render(cfg, mount) {
-    if (!mount) return;
-    cfg = cfg || {};
+  function navBar(cfg) {
+    return '<nav class="lnav"><div class="lnav__inner">' +
+      '<span class="lnav__brand">' + esc(cfg.brand || "Вісточка") + "</span>" +
+      '<a class="lnav__cta" href="#contacts">' + esc(cfg.contactsHeading || "Звʼязатися") + "</a>" +
+      "</div></nav>";
+  }
+
+  function heroSection(cfg) {
+    return '<header class="lhero">' +
+      '<div class="lhero__inner">' +
+        (cfg.eyebrow ? '<p class="lhero__eyebrow">' + esc(cfg.eyebrow) + "</p>" : "") +
+        '<h1 class="landing__brand lhero__brand">' + esc(cfg.brand || "Вісточка") + "</h1>" +
+        '<div class="lhero__rule"></div>' +
+        (cfg.tagline ? '<p class="lhero__tag">' + esc(cfg.tagline) + "</p>" : "") +
+      "</div>" +
+      (cfg.heroImage ? '<div class="lhero__media"><img src="' + esc(cfg.heroImage) + '" alt="" loading="lazy"></div>' : "") +
+      "</header>";
+  }
+
+  function aboutSection(a) {
+    var features = (a.features || []).map(function (f) {
+      return '<li class="feature"><span class="feature__mark" aria-hidden="true"></span>' +
+        '<div class="feature__body"><span class="feature__title">' + esc(f.title) + "</span>" +
+        (f.text ? '<span class="feature__text">' + esc(f.text) + "</span>" : "") + "</div></li>";
+    }).join("");
+    return '<section class="labout"><div class="labout__inner">' +
+      '<div class="labout__text">' +
+        (a.heading ? '<h2 class="section__heading labout__heading">' + esc(a.heading) + "</h2>" : "") +
+        (a.text ? '<p class="labout__lead">' + esc(a.text) + "</p>" : "") +
+        (features ? '<ul class="features">' + features + "</ul>" : "") +
+      "</div>" +
+      (a.image ? '<div class="labout__media"><img src="' + esc(a.image) + '" alt="" loading="lazy"></div>' : "") +
+      "</div></section>";
+  }
+
+  function portfolioSection(p) {
+    var items = (p.items || []).filter(function (it) { return it && it.image; }).map(function (it) {
+      return '<figure class="lwork__item"><img src="' + esc(it.image) + '" alt="' + esc(it.label || "") + '" loading="lazy">' +
+        (it.label ? '<figcaption>' + esc(it.label) + "</figcaption>" : "") + "</figure>";
+    }).join("");
+    return '<section class="section lwork section--surface"><div class="container container--wide">' +
+      '<div class="section__head"><h2 class="section__heading">' + esc(p.heading || "Наші роботи") + "</h2></div>" +
+      '<div class="lwork__grid">' + items + "</div>" +
+      "</div></section>";
+  }
+
+  function contactsSection(cfg) {
     var contacts = (cfg.contacts || []).filter(function (c) { return c && c.url; }).map(function (c) {
       return '<a class="contact" href="' + esc(c.url) + '" target="_blank" rel="noopener">' +
         '<span class="contact__icon">' + contactSvg(c.type) + "</span>" +
         '<span class="contact__label">' + esc(c.label || c.type) + "</span></a>";
     }).join("");
-    mount.innerHTML =
-      '<section class="landing"><div class="landing__inner">' +
-        (cfg.eyebrow ? '<p class="landing__eyebrow">' + esc(cfg.eyebrow) + "</p>" : "") +
-        '<h1 class="landing__brand">' + esc(cfg.brand || "Вісточка") + "</h1>" +
-        '<div class="landing__rule"></div>' +
-        (cfg.tagline ? '<p class="landing__tag">' + esc(cfg.tagline) + "</p>" : "") +
-        (contacts ? '<div class="landing__contacts">' +
-          (cfg.contactsHeading ? '<p class="landing__chead">' + esc(cfg.contactsHeading) + "</p>" : "") +
-          '<div class="contacts">' + contacts + "</div></div>" : "") +
-        (cfg.footer ? '<p class="landing__foot">' + esc(cfg.footer) + "</p>" : "") +
+    if (!contacts) return "";
+    return '<section class="section lcontacts" id="contacts"><div class="container">' +
+      (cfg.contactsHeading ? '<div class="section__head"><h2 class="section__heading">' + esc(cfg.contactsHeading) + "</h2></div>" : "") +
+      '<div class="contacts">' + contacts + "</div>" +
       "</div></section>";
+  }
+
+  function footerSection(cfg) {
+    return '<footer class="footer"><div class="container footer__inner">' +
+      '<h2 class="footer__text">' + esc(cfg.brand || "Вісточка") + "</h2>" +
+      '<div class="footer__divider"></div>' +
+      (cfg.footer ? '<p class="footer__sign">' + esc(cfg.footer) + "</p>" : "") +
+      "</div></footer>";
+  }
+
+  function render(cfg, mount) {
+    if (!mount) return;
+    cfg = cfg || {};
+    var a = cfg.about || {};
+    var p = cfg.portfolio || {};
+    var html = navBar(cfg) + heroSection(cfg);
+    if (a.heading || a.text || (a.features || []).length) html += aboutSection(a);
+    if ((p.items || []).length) html += portfolioSection(p);
+    html += contactsSection(cfg);
+    html += footerSection(cfg);
+    mount.innerHTML = html;
   }
 
   window.WeddingLanding = { render: render, ICONS: ICONS, contactSvg: contactSvg };

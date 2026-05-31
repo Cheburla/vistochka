@@ -114,10 +114,10 @@ button { font: inherit; cursor: pointer; }
 
 .btn--ghost {
   background: transparent;
-  color: var(--ink);
-  border-color: var(--ink);
+  color: var(--accent-deep);
+  border-color: var(--accent);
 }
-.btn--ghost:hover { background: var(--btn-bg); color: var(--btn-on); border-color: var(--btn-bg); }
+.btn--ghost:hover { background: var(--accent); color: var(--btn-on); border-color: var(--accent); }
 
 .btn[disabled] { opacity: 0.5; cursor: default; }
 

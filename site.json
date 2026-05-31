@@ -1,7 +1,26 @@
 {
   "brand": "Вісточка",
   "eyebrow": "Онлайн-запрошення",
-  "tagline": "Персональні запрошення на ваші свята. Відкрийте своє за персональним посиланням.",
+  "tagline": "Персональні цифрові запрошення на ваші свята. Елегантно, швидко, з власним посиланням.",
+  "heroImage": "assets/img/placeholder-wide.svg",
+  "about": {
+    "heading": "Мистецтво цифрового запрошення",
+    "text": "Ми створюємо персональні онлайн-запрошення: витончений дизайн, зручне заповнення і власне посилання, яким легко поділитися з гостями.",
+    "image": "assets/img/placeholder-portrait.svg",
+    "features": [
+      { "title": "Сучасний дизайн", "text": "Витончений золотий стиль, що однаково гарний на телефоні та компʼютері." },
+      { "title": "Готово за хвилини", "text": "Заповнюєте текст і фото, персональне посилання одразу готове." },
+      { "title": "Власний домен", "text": "Запрошення живе за вашою адресою з безпечним зʼєднанням." }
+    ]
+  },
+  "portfolio": {
+    "heading": "Наші роботи",
+    "items": [
+      { "image": "assets/img/placeholder-square.svg", "label": "Весілля" },
+      { "image": "assets/img/placeholder-square.svg", "label": "Заручини" },
+      { "image": "assets/img/placeholder-square.svg", "label": "Річниця" }
+    ]
+  },
   "contactsHeading": "Звʼязатися",
   "contacts": [
     { "type": "telegram", "label": "Telegram", "url": "https://t.me/vistochka" },

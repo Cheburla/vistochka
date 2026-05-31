@@ -1,42 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 /* ============================================================
    tokens.css — design tokens (single source of visual truth)
    Fonts are loaded via the @import above (managed by Studio -> Design),
    so changing the typeface is a one-file edit here.
    ------------------------------------------------------------
-   Source: Claude Design handoff "Modern Minimalist Wedding"
-   (design/1st try/DESIGN.md). Editorial minimalist, EB Garamond +
-   Inter, neutral palette with a muted gold accent, sharp corners,
-   flat surfaces. Re-skin happens here + sections.css only.
+   Source: Claude Design handoff "Aurelian Editorial / Modern Luxe Gold"
+   (design/Modern Luxe Gold/DESIGN.md). Editorial luxe: warm ivory +
+   champagne, Playfair Display + Inter, gold-foil accents (CSS gradients),
+   sharp corners, hairline gold dividers, dark "evening" hero + footer.
+   Re-skin happens here + sections.css only.
    ============================================================ */
 
 :root {
   /* ---- Color (from handoff) ---- */
-  --bg: #fbf9f5;             /* background, warm cream */
-  --surface-low: #f5f3ef;    /* alternating section bg */
-  --surface: #efeeea;        /* dress-code section bg */
-  --surface-high: #eae8e4;   /* image placeholder bg */
-  --rsvp-bg: #f5f0e6;        /* RSVP card */
+  --bg: #fbf7ef;             /* ivory canvas */
+  --surface-low: #faf3e6;    /* lightest champagne section */
+  --surface: #f4ecdd;        /* champagne section */
+  --surface-high: #ece8e0;   /* image placeholder bg */
+  --rsvp-bg: #f4ecdd;        /* RSVP card (champagne) */
 
-  --ink: #1b1c1a;            /* primary text / headings */
-  --ink-2: #444748;          /* secondary body text */
-  --muted: #5e5e5e;          /* labels, metadata */
-  --line: #c4c7c7;           /* hairline dividers */
-  --field-line: #747878;     /* input underline */
+  --ink: #211c16;            /* primary text / headings */
+  --ink-2: #4d463b;          /* secondary body text */
+  --muted: #8a7e6b;          /* labels, metadata */
+  --line: #e2d5bd;           /* gold-tinted hairline dividers */
+  --field-line: #cfc5b7;     /* input underline (rest) */
 
-  --accent: #c2a878;         /* muted gold (ampersand, times, glyphs) */
-  --accent-deep: #988154;    /* darker gold */
+  --accent: #c2a878;         /* solid gold (buttons, interactive) */
+  --accent-deep: #9a7b3f;    /* readable gold for TEXT on light (AA large) */
+  --gold-bright: #dfc391;    /* light gold for gradients on dark */
 
-  --btn-bg: #1b1c1a;         /* solid button */
-  --btn-on: #ffffff;
-  --btn-hover: #444748;
+  /* gold "foil" gradients */
+  --gold-grad: linear-gradient(135deg, #dfc391 0%, #9a7b3f 50%, #dfc391 100%);      /* on dark: shines */
+  --gold-grad-deep: linear-gradient(135deg, #7e6430 0%, #a9863f 50%, #6f5a2e 100%); /* on light: readable */
+
+  /* dark "evening" contexts (hero, footer) */
+  --ink-dark: #16130f;
+  --on-dark: #f4ecdd;
+  --on-dark-muted: #b6ab97;
+
+  --btn-bg: #c2a878;         /* primary button = solid gold */
+  --btn-on: #211c16;         /* ink text on gold */
+  --btn-hover: #b3975f;
 
   /* ---- Typography ---- */
-  --font-display: "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
-  --fs-display: clamp(2.25rem, 1.45rem + 3.4vw, 3rem);  /* 36 -> 48 */
-  --fs-h2: clamp(1.6rem, 1.25rem + 1.5vw, 2rem);        /* headline-md 32 */
+  --fs-display: clamp(2.75rem, 1.4rem + 5.6vw, 5rem);   /* names 44 -> 80 */
+  --fs-h2: clamp(1.8rem, 1.3rem + 2vw, 2.625rem);       /* headline-md 29 -> 42 */
   --fs-h3: 1.5rem;                                       /* headline-sm 24 */
   --fs-body-lg: 1.125rem;                                /* 18 */
   --fs-body: 1rem;                                       /* 16 */
@@ -45,14 +56,14 @@
   --lh-tight: 1.1;
   --lh-body: 1.6;
   --tracking-display: -0.02em;
-  --tracking-label: 0.15em;
+  --tracking-label: 0.18em;
   --tracking-wide: 0.28em;
 
   /* ---- Layout ---- */
   --container: 780px;
-  --container-wide: 1200px;
+  --container-wide: 1140px;
   --gutter: 24px;
-  --section-space: clamp(5rem, 3rem + 9vw, 7.5rem);  /* 80 -> 120 */
+  --section-space: clamp(4rem, 2.5rem + 9vw, 7.5rem);  /* 64 -> 120 */
 
   /* ---- Shape (sharp / editorial) ---- */
   --radius: 0;
