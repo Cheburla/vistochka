@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Jost:wght@300;400;500;600&display=swap');
+/* ============================================================
+   tokens.css — Gatsby / Art Deco build ("Gilded Twenties").
+   Self-contained variation: rich black canvas, bright gold,
+   champagne text, geometric deco motifs. Poiret One (display,
+   Cyrillic) + Jost (geometric body, Cyrillic).
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Color ---- */
+  --bg: #0d0b08;             /* rich warm black canvas */
+  --surface-low: #12100b;    /* alternating section */
+  --surface: #16130d;        /* panel */
+  --surface-high: #1d1910;   /* image placeholder bg */
+  --rsvp-bg: #12100b;        /* RSVP card */
+
+  --ink: #f0e6cb;            /* champagne primary text */
+  --ink-2: #cfc2a2;          /* secondary text */
+  --muted: #94865f;          /* labels, metadata */
+  --line: #38301f;           /* dim gold hairline */
+  --line-gold: rgba(212, 175, 55, 0.45);
+  --field-line: #4d4228;     /* input underline (rest) */
+
+  --accent: #d4af37;         /* bright gold */
+  --accent-deep: #e6c75d;    /* lighter gold for small text on black */
+  --gold-grad: linear-gradient(135deg, #f4dd87 0%, #d4af37 38%, #a07e22 62%, #f1d878 100%);
+
+  --btn-bg: #d4af37;
+  --btn-on: #15110a;
+  --btn-hover: #e6c75d;
+
+  /* ---- Typography ---- */
+  --font-display: "Poiret One", "Trebuchet MS", sans-serif;
+  --font-body: "Jost", "Century Gothic", system-ui, sans-serif;
+
+  --fs-display: clamp(2.6rem, 1.2rem + 6vw, 5.25rem);
+  --fs-h2: clamp(1.7rem, 1.2rem + 2.2vw, 2.6rem);
+  --fs-h3: 1.5rem;
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-label: 0.75rem;
+
+  --lh-tight: 1.12;
+  --lh-body: 1.65;
+  --tracking-display: 0.12em;   /* deco display is spaced, not tight */
+  --tracking-label: 0.22em;
+  --tracking-wide: 0.34em;
+
+  /* ---- Layout ---- */
+  --container: 800px;
+  --container-wide: 1140px;
+  --gutter: 24px;
+  --section-space: clamp(4.5rem, 2.5rem + 9vw, 8rem);
+
+  /* ---- Shape (sharp deco) ---- */
+  --radius: 0;
+  --hairline: 1px;
+  --field-border: 1px solid var(--field-line);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --reveal-duration: 1100ms;
+  --reveal-shift: 40px;
+}

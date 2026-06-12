@@ -1,0 +1,12 @@
+{
+  "brand": "Вісточка",
+  "eyebrow": "Колекція Gatsby",
+  "tagline": "Запрошення в стилі ар-деко: золото, геометрія і блиск двадцятих. Відкрийте своє за персональним посиланням.",
+  "contactsHeading": "Звʼязатися",
+  "contacts": [
+    { "type": "telegram", "label": "Telegram", "url": "https://t.me/vistochka" },
+    { "type": "instagram", "label": "Instagram", "url": "https://instagram.com/vistochka" },
+    { "type": "email", "label": "Пошта", "url": "mailto:hello@vistochka.pp.ua" }
+  ],
+  "footer": "© 2026 Вісточка"
+}

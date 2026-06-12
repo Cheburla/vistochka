@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "title": "Михайло & Олена | Ми одружуємось",
+    "description": "Раді запросити вас розділити цей особливий день разом з нами. 20 вересня 2026 року.",
+    "lang": "uk",
+    "ogImage": "assets/img/hero.jpg",
+    "favicon": "assets/img/favicon.png"
+  },
+  "couple": {
+    "groom": "Михайло",
+    "bride": "Олена",
+    "separator": "&"
+  },
+  "date": {
+    "iso": "2026-09-20T16:00:00+03:00",
+    "weekday": "Неділя",
+    "display": "20 вересня 2026"
+  },
+  "music": {
+    "enabled": false,
+    "src": "",
+    "label": "Увімкнути музику",
+    "volume": 0.35
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "Ми одружуємось",
+    "subtitle": "Раді запросити вас розділити цей особливий день разом з нами",
+    "backgroundImage": "assets/img/hero.jpg",
+    "scrollHint": "Гортайте вниз"
+  },
+  "countdown": {
+    "enabled": true,
+    "heading": "До весілля лишилось",
+    "finishedText": "Сьогодні наш день. Дякуємо, що ви з нами."
+  },
+  "story": {
+    "enabled": true,
+    "heading": "Як ми зустрілись",
+    "paragraphs": [
+      "Тут буде ваша історія: де і як ви познайомились, що стало тим самим моментом.",
+      "Додайте кілька теплих речень про шлях, який привів вас до цього дня."
+    ],
+    "images": [
+      { "src": "assets/img/story-1.jpg", "alt": "Наше фото" },
+      { "src": "assets/img/story-2.jpg", "alt": "Наше фото" }
+    ]
+  },
+  "gallery": {
+    "enabled": true,
+    "heading": "Наші моменти",
+    "images": [
+      { "src": "assets/img/gallery-1.jpg", "alt": "Фото пари" },
+      { "src": "assets/img/gallery-2.jpg", "alt": "Фото пари" },
+      { "src": "assets/img/gallery-3.jpg", "alt": "Фото пари" },
+      { "src": "assets/img/gallery-4.jpg", "alt": "Фото пари" },
+      { "src": "assets/img/gallery-5.jpg", "alt": "Фото пари" }
+    ]
+  },
+  "timeline": {
+    "enabled": true,
+    "heading": "Програма вечора",
+    "items": [
+      { "time": "15:00", "title": "Вітальний фуршет", "note": "Welcome drink" },
+      { "time": "16:00", "title": "Виїзна церемонія", "note": "Ceremony" },
+      { "time": "17:30", "title": "Святкова вечеря", "note": "Gala dinner" },
+      { "time": "21:00", "title": "Танці до ранку", "note": "Jazz and charleston" },
+      { "time": "23:00", "title": "Феєрверк", "note": "Grand finale" }
+    ]
+  },
+  "dressCode": {
+    "enabled": true,
+    "heading": "Дрес-код",
+    "text": "Black tie з духом двадцятих: чорний, золото та глибокі коштовні відтінки. Блискітки та оксамит вітаються.",
+    "palette": [
+      { "name": "Black", "hex": "#15110B" },
+      { "name": "Gold", "hex": "#D4AF37" },
+      { "name": "Champagne", "hex": "#F0E6CB" },
+      { "name": "Emerald", "hex": "#1E5748" },
+      { "name": "Burgundy", "hex": "#6B2433" }
+    ]
+  },
+  "venues": {
+    "enabled": true,
+    "heading": "Адреси святкування",
+    "items": [
+      {
+        "label": "Церемонія",
+        "name": "Сади Гетсбі",
+        "address": "вул. Прикладна 1, Київ",
+        "time": "Початок о 16:00",
+        "image": "assets/img/venue-ceremony.jpg",
+        "mapQuery": "вул. Прикладна 1, Київ",
+        "routeLabel": "Побудувати маршрут"
+      },
+      {
+        "label": "Банкет",
+        "name": "Зала Аврора",
+        "address": "вул. Святкова 5, Київ",
+        "time": "Початок о 17:30",
+        "image": "assets/img/venue-banquet.jpg",
+        "mapQuery": "вул. Святкова 5, Київ",
+        "routeLabel": "Побудувати маршрут"
+      }
+    ]
+  },
+  "rsvp": {
+    "enabled": true,
+    "heading": "RSVP",
+    "intro": "Будь ласка, підтвердіть вашу присутність до 1 вересня 2026 року.",
+    "appsScriptUrl": "",
+    "fields": {
+      "name": "Ваше ім'я та прізвище",
+      "attendance": "Чи зможете ви прийти?",
+      "attendanceYes": "Так, з радістю",
+      "attendanceNo": "На жаль, ні",
+      "guests": "Кількість гостей",
+      "notes": "Ваші побажання та переваги в їжі"
+    },
+    "guestsMax": 5,
+    "submitLabel": "Відправити",
+    "sendingLabel": "Надсилаємо...",
+    "successMessage": "Дякуємо! Вашу відповідь збережено.",
+    "errorMessage": "Щось пішло не так. Спробуйте ще раз або напишіть нам у Telegram."
+  },
+  "telegram": {
+    "enabled": true,
+    "heading": "Наш Telegram чат",
+    "text": "Приєднуйтесь до нашої спільноти, щоб ділитися фотографіями та отримувати новини про свято.",
+    "url": "https://t.me/",
+    "buttonLabel": "Приєднатися"
+  },
+  "footer": {
+    "text": "Святкуйте з нами!",
+    "signature": "© 2026 Михайло та Олена"
+  }
+}
