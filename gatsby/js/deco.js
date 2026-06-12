@@ -124,10 +124,24 @@
     }
   }
 
-  function init() {
-    if (!window.gsap || reduced()) return;
-    if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
-    else return; // both CDN files expected; without ScrollTrigger skip cleanly
+  /* If rAF is throttled to a halt (hidden tab, battery saver, some in-app
+     browsers) GSAP's ticker freezes and from-tweens would leave content at
+     opacity 0. Detect a dead ticker and fall back to the static page. */
+  function armWatchdog() {
+    var frame = gsap.ticker.frame;
+    setTimeout(function () {
+      if (gsap.ticker.frame > frame + 3) return; // ticker alive, animations run
+      ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
+      gsap.globalTimeline.getChildren(true, true, true).forEach(function (t) { t.kill(); });
+      gsap.set(".reveal, .nav, .lnav, .gallery__item, .timeline__time, .contact, .footer__inner, " +
+        ".hero__eyebrow, .hero__names .ch, .hero__divider, .hero__date, .hero__subtitle, .hero__scroll, " +
+        ".lhero__eyebrow, .lhero__brand .ch, .lhero__rule, .lhero__tag", { clearProps: "all" });
+      var stage = document.querySelector(".hero") || document.querySelector(".lhero");
+      if (stage) stage.style.setProperty("--rays", 1);
+    }, 3000);
+  }
+
+  function build() {
     // re-render safety (Studio preview re-invokes init)
     ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
 
@@ -145,6 +159,23 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
     }
+    armWatchdog();
+  }
+
+  function init() {
+    if (!window.gsap || !window.ScrollTrigger || reduced()) return; // static page stays fully visible
+    gsap.registerPlugin(ScrollTrigger);
+    if (document.hidden) {
+      // Opened in a background tab: keep the page static and start the
+      // animations only when the guest actually looks at it.
+      document.addEventListener("visibilitychange", function onVis() {
+        if (document.hidden) return;
+        document.removeEventListener("visibilitychange", onVis);
+        build();
+      });
+      return;
+    }
+    build();
   }
 
   window.WeddingDeco = { init: init };
